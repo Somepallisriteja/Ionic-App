@@ -4,8 +4,10 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { NetworkEngineProvider } from '../../providers/network-engine/network-engine';
 import { NgForm } from '@angular/forms';
+import {AngularFireDatabase} from 'angularfire2/database';
+import firebase from 'firebase';
 
-
+declare var FCMPlugin;
 
 
 
@@ -15,13 +17,61 @@ import { NgForm } from '@angular/forms';
 
 })
 export class ProfilePage {
-  
+  firestore =  firebase.database().ref('/pushtokens');
+  firemsg = firebase.database().ref('/messages');
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public http: Http,
-    public networkprovider: NetworkEngineProvider
+    public networkprovider: NetworkEngineProvider,
+    public afd: AngularFireDatabase
   ) {
+  this.tokensetup().then((token) =>{
+    this.storetoken(token);
+  });
+  }
+  ionViewDidLoad(){
+    FCMPlugin.onNotification(function(data){
+      if(data.wasTapped){
+        //Notification was received on device tray and tapped by the user.
+        alert( JSON.stringify(data) );
+      }else{
+        //Notification was received in foreground. Maybe the user needs to be notified.
+        alert( JSON.stringify(data) );
+      }
+  });
+  FCMPlugin.onTokenRefresh(function(token){
+    alert( token );
+});
+  }
+  tokensetup(){
+    var promise = new promise((resolve, reject) =>{
+      FCMPlugin.getToken(function(token){
+        resolve(token);
+    }, (err) =>{
+      reject(err);
+    });
 
+    })
+    return promise;
+  }
+  storetoken(t){
+   this.afd.list(this.firestore).push({
+     uid: firebase.auth().currentUser.uid,
+     devtoken: t
+   }). then(() =>{
+     alert('Token stored');
+   }).catch(()=>{
+     alert('Token not stored');
+   })
+
+   this.afd.list(this.firemsg).push({
+     sendername: firebase.auth().currentUser.displayName,
+     message: 'Hello'
+   }).then(()=>{
+     alert('Message stored');
+   }).catch(()=>{
+     alert('Message not stored');
+   })
   }
 
 users: any;

@@ -60,5 +60,21 @@
       "CHANNEL_NAME": "Production",
       "UPDATE_METHOD": "background"
     }
+  },
+  "cordova-plugin-fcm": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-fcm"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-inappbrowser": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-inappbrowser@latest"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

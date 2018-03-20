@@ -31,7 +31,11 @@ export class MyApp {
      private authService: AuthService) {
     firebase.initializeApp({
       apiKey: "AIzaSyBGM4oT6gmKxjNpFlUxy0v-yRcWEJk7IIs",
-      authDomain: "signspin-app.firebaseapp.com"
+      authDomain: "signspin-app.firebaseapp.com",
+      databaseURL: "https://signspin-app.firebaseio.com",
+      projectId: "signspin-app",
+      storageBucket: "signspin-app.appspot.com",
+      messagingSenderId: "483860303310"
     });
     firebase.auth().onAuthStateChanged(user=> {
         if(user){
