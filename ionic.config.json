@@ -1,6 +1,6 @@
 {
   "name": "thirdapp",
-  "app_id": "01fd7ebf",
+  "app_id": "0d6deb51",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
