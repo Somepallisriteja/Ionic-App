@@ -1,0 +1,32 @@
+<ion-menu [content]="nav">
+    <ion-header>
+        <ion-toolbar>
+            <ion-title>
+                Menu
+            </ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content class="background" >
+        <ion-list class="background">
+            <button
+            ion-item
+            icon-left
+            (click)= "onLoad(MyshiftsPage)"
+            *ngIf="isAuthenticated">
+           
+            <ion-icon name="book"></ion-icon>
+            MyShifts</button>
+            <button
+            ion-item
+            icon-left
+            (click)= "onLogout()"
+            *ngIf="isAuthenticated">
+            <ion-icon name="log-out"></ion-icon>
+
+            LogOut</button>
+        </ion-list>
+    </ion-content>
+
+</ion-menu> 
+<ion-nav [root]="rootPage" #nav></ion-nav>
+

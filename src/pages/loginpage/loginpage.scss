@@ -1,0 +1,51 @@
+page-loginpage {
+    .background{
+        background-color: rgb(28, 25, 28);
+    }  
+
+.scroll-content{
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+ion-card.card {
+    box-shadow: none;
+    border-radius: 5px;
+    background: rgba(0,0,0.5,0);
+}
+a, p,
+ion-card-header.card-header{
+    color: #fff;
+}
+.item{
+    margin-bottom: 10px;
+    border: medium none;
+    background: rgba(255,255,255,0.5);
+    border-radius: 5px;
+
+}
+.list > .item-block:first-child{
+    border: medium none;
+}
+.text-input{
+    color: #fff;
+}
+::-webkit-input-placeholder{
+    color: white !important;
+}
+::-moz-placeholder{
+    color: white !important;
+}
+:-ms-input-placeholder{
+    color: white !important;
+}
+.icon{
+    padding-right: 10px;
+}
+.bottom{
+    position: absolute;
+    bottom: 10px;
+}
+}

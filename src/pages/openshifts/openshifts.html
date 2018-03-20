@@ -1,0 +1,82 @@
+
+<ion-header>
+  <ion-navbar>
+    <ion-buttons end>
+     <button ion-button icon-only (click)="onNewOpenShift()">
+       <ion-icon name="add"></ion-icon>
+     </button>
+    </ion-buttons>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onloadJson()">
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+     </ion-buttons>
+    <ion-title>Open Shifts</ion-title>
+  </ion-navbar>
+ 
+</ion-header>
+
+
+
+
+<ion-content padding>
+  <button ion-button block (click)="onloadJson()">Click me for open shifts</button>
+  <ion-card *ngFor= "let openShift of openShifts; let i = index">
+    <ion-card-title text-center>
+      {{openShift.Title}}
+    </ion-card-title>
+    <ion-card-header text-center>
+        <p> Date: {{openShift.date}}</p>
+        <p>Location:{{ openShift.location}}</p>
+        <p>Timing: {{openShift.StartTime}} to {{openShift.EndTime}}</p>
+    </ion-card-header>
+    <ion-row>
+      <ion-col text-right>
+        <button
+        ion-button
+        small
+        clear
+        (click)="onLoadShift(openShift, i)">Details</button>
+        
+      </ion-col>
+    </ion-row>
+  
+  
+  </ion-card>
+
+  <ion-card *ngFor= "let user of users; let i = index">
+    <ion-card-title text-center>
+      {{user.Title}}
+    </ion-card-title>
+    <ion-card-header text-left>
+        <p> Date:    {{user.Date}}</p>
+        <p>Location: {{ user.Location}}</p>
+        <p>Street:   {{ user.Street}}</p>
+
+        <p>Timing:   {{user.StartTime}} to {{user.EndTime}}</p>
+        <p>Signs:    {{ user.Signs}}</p>
+        <p>DressCode:{{ user.DressCode}}</p>
+        <p>Others:   {{ user.Otherinfo}}</p>
+       
+    </ion-card-header>
+    <ion-row>
+      <ion-col text-right>
+        <button
+        ion-button
+        large
+        clear
+        (click)= "onInterested()"
+        ><ion-icon name="eye" icon-only></ion-icon></button>
+        
+      </ion-col>
+    </ion-row>
+  
+  
+  </ion-card>
+  
+  
+  
+   
+  
+    </ion-content>
+  
