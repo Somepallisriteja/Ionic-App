@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "483860303310",
+    "firebase_url": "https://signspin-app.firebaseio.com",
+    "project_id": "signspin-app",
+    "storage_bucket": "signspin-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483860303310:android:764d2cb7da3280eb",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "483860303310-n94it25ssu62e066dafinj7s0kofk3ig.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmFTPdMywvXtHtQfO9rLnALs882ur9_Tg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

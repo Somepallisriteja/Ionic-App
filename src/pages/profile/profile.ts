@@ -4,10 +4,10 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { NetworkEngineProvider } from '../../providers/network-engine/network-engine';
 import { NgForm } from '@angular/forms';
-import {AngularFireDatabase} from 'angularfire2/database';
+/*import {AngularFireDatabase} from 'angularfire2/database';
 import firebase from 'firebase';
 
-declare var FCMPlugin;
+declare var FCMPlugin; */
 
 
 
@@ -17,19 +17,19 @@ declare var FCMPlugin;
 
 })
 export class ProfilePage {
-  firestore =  firebase.database().ref('/pushtokens');
-  firemsg = firebase.database().ref('/messages');
+ /*firestore =  firebase.database().ref('/pushtokens');
+  firemsg = firebase.database().ref('/messages');  */
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public http: Http,
     public networkprovider: NetworkEngineProvider,
-    public afd: AngularFireDatabase
+    /*public afd: AngularFireDatabase*/
   ) {
-  this.tokensetup().then((token) =>{
+ /* this.tokensetup().then((token) =>{
     this.storetoken(token);
-  });
+  }); */
   }
-  ionViewDidLoad(){
+    /*ionViewDidLoad(){
     FCMPlugin.onNotification(function(data){
       if(data.wasTapped){
         //Notification was received on device tray and tapped by the user.
@@ -72,7 +72,7 @@ export class ProfilePage {
    }).catch(()=>{
      alert('Message not stored');
    })
-  }
+  }  */
 
 users: any;
 

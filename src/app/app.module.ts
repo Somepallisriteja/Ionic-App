@@ -30,7 +30,7 @@ import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/dat
 
 
 var config = {
-  apiKey: "AIzaSyBGM4oT6gmKxjNpFlUxy0v-yRcWEJk7IIs",
+  apiKey: "AIzaSyBGM4oT6gmKxjNpFlUxy0v-yRcWEJk7IIs",  
   authDomain: "signspin-app.firebaseapp.com",
   databaseURL: "https://signspin-app.firebaseio.com",
   projectId: "signspin-app",
