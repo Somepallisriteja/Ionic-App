@@ -7,6 +7,10 @@
     "files": {}
   },
   "installed_plugins": {
+    "cordova-android-play-services-gradle-release": {
+      "PLAY_SERVICES_VERSION": "12.+",
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
     "cordova-plugin-calendar": {
       "PACKAGE_NAME": "io.ionic.starter"
     },

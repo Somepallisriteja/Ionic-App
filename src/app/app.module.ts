@@ -25,18 +25,17 @@ import { SignspinDataProvider } from '../providers/signspin-data/signspin-data';
 import { HttpModule } from '@angular/http';
 import { NetworkEngineProvider } from '../providers/network-engine/network-engine';
 import { HttpClientModule } from '@angular/common/http';
-import {AngularFireModule} from 'angularfire2';
-import { AngularFireDatabase, AngularFireDatabaseModule } from 'angularfire2/database';
 
 
-var config = {
+
+/*var config = {
   apiKey: "AIzaSyBGM4oT6gmKxjNpFlUxy0v-yRcWEJk7IIs",  
   authDomain: "signspin-app.firebaseapp.com",
   databaseURL: "https://signspin-app.firebaseio.com",
   projectId: "signspin-app",
   storageBucket: "signspin-app.appspot.com",
   messagingSenderId: "483860303310"
-};
+};   */
 
 @NgModule({
   declarations: [
@@ -62,9 +61,8 @@ var config = {
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
-    HttpClientModule,
-    AngularFireModule.initializeApp(config),
-    AngularFireDatabaseModule
+    HttpClientModule
+    
     
   ],
   bootstrap: [IonicApp],

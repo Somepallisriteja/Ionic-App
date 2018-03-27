@@ -68,7 +68,8 @@ module.exports.metadata =
   "cordova-plugin-ionic-webview": "1.1.16",
   "cordova-plugin-ionic-keyboard": "2.0.5",
   "cordova-plugin-fcm": "2.1.2",
-  "cordova-plugin-inappbrowser": "2.0.2"
+  "cordova-plugin-inappbrowser": "2.0.2",
+  "cordova-android-play-services-gradle-release": "1.2.1"
 };
 // BOTTOM OF METADATA
 });

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams} from 'ionic-angular';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { NetworkEngineProvider } from '../../providers/network-engine/network-engine';
 import { NgForm } from '@angular/forms';
 /*import {AngularFireDatabase} from 'angularfire2/database';
-import firebase from 'firebase';
+import firebase from 'firebase'; 
 
-declare var FCMPlugin; */
+declare var FCMPlugin: any; */
 
 
 
@@ -16,20 +16,33 @@ declare var FCMPlugin; */
   templateUrl: 'profile.html',
 
 })
+
 export class ProfilePage {
  /*firestore =  firebase.database().ref('/pushtokens');
   firemsg = firebase.database().ref('/messages');  */
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public http: Http,
-    public networkprovider: NetworkEngineProvider,
+    public networkprovider: NetworkEngineProvider
     /*public afd: AngularFireDatabase*/
   ) {
  /* this.tokensetup().then((token) =>{
     this.storetoken(token);
-  }); */
+  }); 
+  this.onNotification();*/
   }
-    /*ionViewDidLoad(){
+
+
+  /*async onNotification(){
+   await this.platform.ready();
+   FCMPlugin.onNotification((data)=>{
+     console.log(data);
+   }, (error)=> console.error(error));
+  }
+  catch(e){
+    console.error(e);
+  }
+    ionViewDidLoad(){
     FCMPlugin.onNotification(function(data){
       if(data.wasTapped){
         //Notification was received on device tray and tapped by the user.

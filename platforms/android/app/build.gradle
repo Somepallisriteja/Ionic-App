@@ -91,6 +91,7 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
+apply from: "../cordova-android-play-services-gradle-release/starter-cordova-android-play-services-gradle-release.gradle"
 apply from: "../cordova-plugin-fcm/starter-FCMPlugin.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 

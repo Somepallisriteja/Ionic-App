@@ -53,6 +53,7 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
+  "cordova-android-play-services-gradle-release": "1.2.1",
   "cordova-plugin-calendar": "5.0.0",
   "cordova-plugin-device": "1.1.4",
   "cordova-plugin-fcm": "2.1.2",
