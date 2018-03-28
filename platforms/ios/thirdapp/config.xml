@@ -25,27 +25,27 @@
     <feature name="Device">
         <param name="ios-package" value="CDVDevice" />
     </feature>
-    <feature name="SplashScreen">
-        <param name="ios-package" value="CDVSplashScreen" />
-        <param name="onload" value="true" />
-    </feature>
-    <allow-navigation href="http://localhost:8080/*" />
-    <feature name="CDVWKWebViewEngine">
-        <param name="ios-package" value="CDVWKWebViewEngine" />
-    </feature>
-    <feature name="Keyboard">
-        <param name="ios-package" onload="true" value="CDVIonicKeyboard" />
-    </feature>
     <feature name="FCMPlugin">
         <param name="ios-package" value="FCMPlugin" />
     </feature>
     <feature name="InAppBrowser">
         <param name="ios-package" value="CDVInAppBrowser" />
     </feature>
+    <feature name="Keyboard">
+        <param name="ios-package" onload="true" value="CDVIonicKeyboard" />
+    </feature>
+    <allow-navigation href="http://localhost:8080/*" />
+    <feature name="CDVWKWebViewEngine">
+        <param name="ios-package" value="CDVWKWebViewEngine" />
+    </feature>
+    <feature name="SplashScreen">
+        <param name="ios-package" value="CDVSplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
     <name>thirdapp</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.178.113:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -55,6 +55,9 @@
     <allow-intent href="geo:*" />
     <allow-navigation href="http://192.168.178.113:8100" />
     <allow-navigation href="http://localhost:8100" />
+    <allow-navigation href="http://141.44.219.53:8100" />
+    <allow-navigation href="http://141.44.219.206:8100" />
+    <allow-navigation href="*" />
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <icon height="57" src="resources/ios/icon/icon.png" width="57" />

@@ -7,23 +7,14 @@
     "files": {}
   },
   "installed_plugins": {
+    "cordova-android-play-services-gradle-release": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
     "cordova-plugin-calendar": {
       "CALENDAR_USAGE_DESCRIPTION": " ",
       "PACKAGE_NAME": "io.ionic.starter"
     },
-    "cordova-plugin-whitelist": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
     "cordova-plugin-device": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-plugin-splashscreen": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-plugin-ionic-webview": {
-      "PACKAGE_NAME": "io.ionic.starter"
-    },
-    "cordova-plugin-ionic-keyboard": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
     "cordova-plugin-fcm": {
@@ -32,7 +23,16 @@
     "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "io.ionic.starter"
     },
-    "cordova-android-play-services-gradle-release": {
+    "cordova-plugin-ionic-keyboard": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-ionic-webview": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "io.ionic.starter"
     }
   },
