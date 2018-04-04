@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams} from 'ionic-angular';
+import { NavController, NavParams, Platform} from 'ionic-angular';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { NetworkEngineProvider } from '../../providers/network-engine/network-engine';
 import { NgForm } from '@angular/forms';
-/*import {AngularFireDatabase} from 'angularfire2/database';
-import firebase from 'firebase'; 
 
-declare var FCMPlugin: any; */
+
+/*import {AngularFireDatabase} from 'angularfire2/database';
+import firebase from 'firebase';
+declare let FCMPlugin; */
+
+
 
 
 
@@ -23,17 +26,18 @@ export class ProfilePage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public http: Http,
-    public networkprovider: NetworkEngineProvider
+    public networkprovider: NetworkEngineProvider,
+    private platform: Platform
     /*public afd: AngularFireDatabase*/
   ) {
  /* this.tokensetup().then((token) =>{
     this.storetoken(token);
-  }); 
-  this.onNotification();*/
+  }); */
+  this.onNotification();
   }
 
 
-  /*async onNotification(){
+  async onNotification(){
    await this.platform.ready();
    FCMPlugin.onNotification((data)=>{
      console.log(data);
@@ -42,7 +46,7 @@ export class ProfilePage {
   catch(e){
     console.error(e);
   }
-    ionViewDidLoad(){
+    /*ionViewDidLoad(){
     FCMPlugin.onNotification(function(data){
       if(data.wasTapped){
         //Notification was received on device tray and tapped by the user.

@@ -2,12 +2,10 @@
   "cordova-plugin-calendar": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-calendar@5.0.0"
+      "id": "cordova-plugin-calendar@^5.0.0"
     },
     "is_top_level": true,
-    "variables": {
-      "CALENDAR_USAGE_DESCRIPTION": " "
-    }
+    "variables": {}
   },
   "cordova-plugin-whitelist": {
     "source": {
@@ -81,6 +79,14 @@
     "source": {
       "type": "registry",
       "id": "cordova-android-play-services-gradle-release"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-fcm-with-dependecy-updated": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-fcm-with-dependecy-updated@^2.2.4"
     },
     "is_top_level": true,
     "variables": {}
