@@ -3,7 +3,7 @@
     <name>thirdapp</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://141.44.219.128:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -86,13 +86,15 @@
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
-    <plugin name="cordova-plugin-fcm" spec="^2.1.2" />
     <plugin name="cordova-plugin-inappbrowser" spec="^2.0.2" />
     <plugin name="cordova-android-play-services-gradle-release" spec="^1.2.1">
         <variable name="PLAY_SERVICES_VERSION" value="12.+" />
     </plugin>
-    <allow-navigation href="http://141.44.219.128:8100" />
-    <plugin name="cordova-plugin-calendar" spec="^5.0.0" />
     <engine name="ios" spec="4.5.4" />
     <engine name="android" spec="6.4.0" />
+    <allow-navigation href="http://141.44.219.128:8100" />
+    <plugin name="cordova-plugin-calendar" spec="^5.0.0" />
+    <plugin name="cordova-plugin-fcm" spec="^2.1.2" />
+    <allow-navigation href="http://141.44.219.197:8100" />
+    <allow-navigation href="http://141.44.219.123:8100" />
 </widget>

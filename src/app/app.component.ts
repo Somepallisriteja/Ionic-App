@@ -9,6 +9,12 @@ import { MyshiftsPage } from '../pages/myshifts/myshifts';
 import firebase from 'firebase';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AuthService } from '../services/auth';
+import { ToastController } from 'ionic-angular';
+import { tap } from 'rxjs/operators';
+import { FcmProvider } from '../providers/fcm/fcm';
+
+
+
 
 
 @Component({
@@ -28,7 +34,29 @@ export class MyApp {
      statusBar: StatusBar, 
      splashScreen: SplashScreen, 
      private menuCtrl: MenuController,
-     private authService: AuthService) {
+     private authService: AuthService,
+     fcm: FcmProvider,
+     toastCtrl: ToastController
+    ) {
+
+      platform.ready().then(() => {
+
+        // Get a FCM token
+        fcm.getToken()
+        // Listen to incoming messages
+      fcm.listenToNotifications().pipe(
+        tap(msg => {
+          // show a toast
+          const toast = toastCtrl.create({
+            message: msg.body,
+            duration: 3000
+          });
+          toast.present();
+        })
+      )
+      .subscribe()
+    });
+  
     firebase.initializeApp({
       apiKey: "AIzaSyBGM4oT6gmKxjNpFlUxy0v-yRcWEJk7IIs",
       authDomain: "signspin-app.firebaseapp.com",
@@ -37,6 +65,9 @@ export class MyApp {
       storageBucket: "signspin-app.appspot.com",
       messagingSenderId: "483860303310"
     });
+
+   
+  
     firebase.auth().onAuthStateChanged(user=> {
         if(user){
           this.isAuthenticated = true;
@@ -62,6 +93,11 @@ export class MyApp {
     this.menuCtrl.close();
     this.nav.setRoot(LoginpagePage);
   }
+ 
 
 }
+
+
+
+
 

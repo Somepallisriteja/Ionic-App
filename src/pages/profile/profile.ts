@@ -7,8 +7,8 @@ import { NgForm } from '@angular/forms';
 
 
 /*import {AngularFireDatabase} from 'angularfire2/database';
-import firebase from 'firebase';
-declare let FCMPlugin; */
+import firebase from 'firebase';*/
+declare let FCMPlugin; 
 
 
 
