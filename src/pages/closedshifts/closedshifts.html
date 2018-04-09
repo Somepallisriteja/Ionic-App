@@ -8,53 +8,43 @@
 </ion-header>
 
 
-<ion-content padding class="background">
-   <!-- <ion-card color= "light">
-        
-        <ion-card-content>
-            <img src="http://oi68.tinypic.com/2eupsb5.jpg" height="70px" width="15px"/>
-          <ion-card-title>
-            Decathlon <br />
-            Berlin<br />
-            20.02.2018
-            <ion-row>
-                <ion-col text-right>
-                  <button ion-button
-                  outline
-                  (click)="onload()"
-                  >Details</button>
-                </ion-col>
-              </ion-row>
-            
-            </ion-card-title>
-        
-        </ion-card-content >
-      </ion-card>
+<ion-content padding>
+  <button ion-button block (click)="onloadJson()">Click me for open shifts</button>
 
-      <ion-card color = "light">
-          
-          <ion-card-content>
-              <img src="http://oi67.tinypic.com/wiv8xt.jpg" height="100px" width="15px" />
-            <ion-card-title text-right>
-              Decathlon <br />
-              Berlin<br />
-              20.02.2018
-              <ion-row>
-                  <ion-col text-left>
-                    <button ion-button
-                    outline
-                    (click)= "onload()"
-                    >Details</button>
-                  </ion-col>
-                </ion-row>
-              
-              </ion-card-title>
-          
-          </ion-card-content>
 
+  <ion-card *ngFor= "let user of users; let i = index">
+    <ion-card-title text-center>
+      Spinning Offer
+    </ion-card-title>
+    <ion-card-header text-left>
+        <p> Date:    {{user.Datum}}</p>
+        <p>Location: {{ user.LocationName}}</p>
+        <p>Street:   {{ user.ServiceAddress}}</p>
+
+        <p>Timing:   {{user.SchStart}} to {{user.SchEnd}}</p>
+        <p>Signs:    {{ user.Signs}}</p>
+        <p>DressCode:{{ user.DressCode}}</p>
+        <p>Others:   {{ user.Otherinfo}}</p>
+       
+    </ion-card-header>
+    <ion-row>
+      <ion-col text-right>
+        <button
+        ion-button
+        large
+        clear
+       
+        ><ion-icon name="eye" icon-only></ion-icon></button>
         
-        </ion-card>   -->
-        
-
-</ion-content>
-
+      </ion-col>
+    </ion-row>
+  
+  
+  </ion-card>
+  
+  
+  
+   
+  
+    </ion-content>
+  

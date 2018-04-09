@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, Platform} from 'ionic-angular';
+import { NavController, NavParams} from 'ionic-angular';
 import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { NetworkEngineProvider } from '../../providers/network-engine/network-engine';
@@ -7,8 +7,8 @@ import { NgForm } from '@angular/forms';
 
 
 /*import {AngularFireDatabase} from 'angularfire2/database';
-import firebase from 'firebase';*/
-declare let FCMPlugin; 
+import firebase from 'firebase';
+declare let FCMPlugin;  */
 
 
 
@@ -27,12 +27,12 @@ export class ProfilePage {
     public navParams: NavParams,
     public http: Http,
     public networkprovider: NetworkEngineProvider,
-    private platform: Platform
-    /*public afd: AngularFireDatabase*/
+   /* private platform: Platform
+    public afd: AngularFireDatabase*/
   ) {
  /* this.tokensetup().then((token) =>{
     this.storetoken(token);
-  }); */
+  }); 
   this.onNotification();
   }
 
@@ -90,6 +90,7 @@ export class ProfilePage {
      alert('Message not stored');
    })
   }  */
+}
 
 users: any;
 

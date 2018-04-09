@@ -9,9 +9,9 @@ import { MyshiftsPage } from '../pages/myshifts/myshifts';
 import firebase from 'firebase';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AuthService } from '../services/auth';
-import { ToastController } from 'ionic-angular';
-import { tap } from 'rxjs/operators';
-import { FcmProvider } from '../providers/fcm/fcm';
+import { Push, PushObject, PushOptions } from '@ionic-native/push';
+
+
 
 
 
@@ -35,13 +35,22 @@ export class MyApp {
      splashScreen: SplashScreen, 
      private menuCtrl: MenuController,
      private authService: AuthService,
-     fcm: FcmProvider,
-     toastCtrl: ToastController
+     private push: Push
     ) {
+
+   firebase.initializeApp({
+    apiKey: "AIzaSyAEITsjmRjiUxpzj25m4rZ8VtT_bXzMapM",
+    authDomain: "myproject-2c6c2.firebaseapp.com",
+    databaseURL: "https://myproject-2c6c2.firebaseio.com",
+    projectId: "myproject-2c6c2",
+    storageBucket: "",
+    messagingSenderId: "468750777039"
+        
+      });
 
       platform.ready().then(() => {
 
-        // Get a FCM token
+        /*  // Get a FCM token
         fcm.getToken()
         // Listen to incoming messages
       fcm.listenToNotifications().pipe(
@@ -54,17 +63,11 @@ export class MyApp {
           toast.present();
         })
       )
-      .subscribe()
-    });
+      .subscribe()     */
+
+    });    
   
-    firebase.initializeApp({
-      apiKey: "AIzaSyBGM4oT6gmKxjNpFlUxy0v-yRcWEJk7IIs",
-      authDomain: "signspin-app.firebaseapp.com",
-      databaseURL: "https://signspin-app.firebaseio.com",
-      projectId: "signspin-app",
-      storageBucket: "signspin-app.appspot.com",
-      messagingSenderId: "483860303310"
-    });
+   
 
    
   
@@ -82,7 +85,33 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+      this.pushSetup();
     });
+  }
+  pushSetup(){
+    const options: PushOptions = {
+      android: {
+        senderID: '483860303310'
+      },
+      ios: {
+          alert: 'true',
+          badge: true,
+          sound: 'false'
+      },
+      windows: {},
+      browser: {
+          pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+      }
+   };
+   
+   const pushObject: PushObject = this.push.init(options);
+   
+   
+   pushObject.on('notification').subscribe((notification: any) => console.log('Received a notification', notification));
+   
+   pushObject.on('registration').subscribe((registration: any) => console.log('Device registered', registration));
+   
+   pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
   }
   onLoad(page: any){
    this.nav.setRoot(page);

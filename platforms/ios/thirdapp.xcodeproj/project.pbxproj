@@ -54,6 +54,8 @@
 		75048D8280A44B10947FCDB9 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0657A16AFFC44AB89C00DC0F /* AddressBook.framework */; };
 		8A5C46675A3149E785AAB16A /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A49B86603C4F4D31B8208E48 /* libsqlite3.0.tbd */; };
 		1AE986E9001743C1BA402968 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF835CF470A402A9A5D7CE7 /* Security.framework */; };
+		319A27C6EDFF42E79D37E617 /* AppDelegate+notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D59EF59F0D94443814F3F8F /* AppDelegate+notification.m */; };
+		5DEE16B148AD472188341D18 /* PushPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DF7A853F954764A3EC82CC /* PushPlugin.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +173,10 @@
 		0657A16AFFC44AB89C00DC0F /* AddressBook.framework */ = {isa = PBXFileReference; name = "AddressBook.framework"; path = "System/Library/Frameworks/AddressBook.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		A49B86603C4F4D31B8208E48 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; name = "libsqlite3.0.tbd"; path = "usr/lib/libsqlite3.0.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
 		BAF835CF470A402A9A5D7CE7 /* Security.framework */ = {isa = PBXFileReference; name = "Security.framework"; path = "System/Library/Frameworks/Security.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		7D59EF59F0D94443814F3F8F /* AppDelegate+notification.m */ = {isa = PBXFileReference; name = "AppDelegate+notification.m"; path = "phonegap-plugin-push/AppDelegate+notification.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		28DF7A853F954764A3EC82CC /* PushPlugin.m */ = {isa = PBXFileReference; name = "PushPlugin.m"; path = "phonegap-plugin-push/PushPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		AE51E093F58F4DE4846D26D4 /* AppDelegate+notification.h */ = {isa = PBXFileReference; name = "AppDelegate+notification.h"; path = "phonegap-plugin-push/AppDelegate+notification.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		DC2C7DFDCEEA46CA8727A8BA /* PushPlugin.h */ = {isa = PBXFileReference; name = "PushPlugin.h"; path = "phonegap-plugin-push/PushPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -361,6 +367,10 @@
 				9CC67D942ED94D1A90A8D35C /* FCMPlugin.h */,
 				BA45F31D7FE9400E91F1A28E /* AppDelegate+FCMPlugin.h */,
 				FBB37FFD8D3F40909CECB1B0 /* Firebase.h */,
+				7D59EF59F0D94443814F3F8F /* AppDelegate+notification.m */,
+				28DF7A853F954764A3EC82CC /* PushPlugin.m */,
+				AE51E093F58F4DE4846D26D4 /* AppDelegate+notification.h */,
+				DC2C7DFDCEEA46CA8727A8BA /* PushPlugin.h */,
 			);
 			name = Plugins;
 			path = thirdapp/Plugins;
@@ -528,6 +538,8 @@
 				1FC8B94A03C449AB95DABCAB /* CDVViewController+SplashScreen.m in Sources */,
 				02D63ADDD46A4C67806E6C3D /* FCMPlugin.m in Sources */,
 				94BE9D997FA843DEBFD3E601 /* AppDelegate+FCMPlugin.m in Sources */,
+				319A27C6EDFF42E79D37E617 /* AppDelegate+notification.m in Sources */,
+				5DEE16B148AD472188341D18 /* PushPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

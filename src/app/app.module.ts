@@ -26,12 +26,23 @@ import { HttpModule } from '@angular/http';
 import { NetworkEngineProvider } from '../providers/network-engine/network-engine';
 import { HttpClientModule } from '@angular/common/http';
 import { Firebase } from '@ionic-native/firebase';
-
-
-import { AngularFirestoreModule} from 'angularfire2/firestore';
+import { Push } from '@ionic-native/push';
+ /*import { AngularFirestoreModule} from 'angularfire2/firestore';
 import { FcmProvider } from '../providers/fcm/fcm';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireStorageModule} from 'angularfire2/storage';
+import { AngularFireAuthModule} from 'angularfire2/auth'; 
 
+const firebase ={
+  
+  apiKey: "AIzaSyBGM4oT6gmKxjNpFlUxy0v-yRcWEJk7IIs",
+  authDomain: "signspin-app.firebaseapp.com",
+  databaseURL: "https://signspin-app.firebaseio.com",
+  projectId: "signspin-app",
+  storageBucket: "signspin-app.appspot.com",
+  messagingSenderId: "483860303310"
 
+} */
 
 
 
@@ -61,7 +72,12 @@ import { FcmProvider } from '../providers/fcm/fcm';
     IonicModule.forRoot(MyApp),
     HttpModule,
     HttpClientModule,
-    AngularFirestoreModule
+   /* AngularFireModule.initializeApp(firebase),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule */
+
+    
     
     
   ],
@@ -87,14 +103,14 @@ import { FcmProvider } from '../providers/fcm/fcm';
   providers: [
     StatusBar,
     SplashScreen,
+    Push,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
     ShiftsService,
     SignspinDataProvider,
     NetworkEngineProvider,
-    Firebase,
-    FcmProvider,
-    FcmProvider
+    Firebase
+    /*FcmProvider */
   
   ]
 })
