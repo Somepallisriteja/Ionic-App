@@ -98,4 +98,6 @@
     <engine name="ios" spec="4.5.4" />
     <engine name="android" spec="6.4.0" />
     <allow-navigation href="http://141.44.219.194:8100" />
+    <allow-navigation href="http://141.44.219.142:8100" />
+    <allow-navigation href="http://192.168.1.22:8100" />
 </widget>

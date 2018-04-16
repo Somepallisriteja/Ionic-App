@@ -48,7 +48,7 @@
     <name>thirdapp</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content src="index.html" />
+    <content original-src="index.html" src="http://192.168.1.22:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -64,6 +64,9 @@
     <allow-navigation href="http://141.44.219.128:8100" />
     <allow-navigation href="http://141.44.219.197:8100" />
     <allow-navigation href="http://141.44.219.123:8100" />
+    <allow-navigation href="http://141.44.219.194:8100" />
+    <allow-navigation href="http://141.44.219.142:8100" />
+    <allow-navigation href="http://192.168.1.22:8100" />
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <icon height="57" src="resources/ios/icon/icon.png" width="57" />
