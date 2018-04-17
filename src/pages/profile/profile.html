@@ -31,21 +31,34 @@
 <button ion-button block >Add Item</button>
 </form>
 
-<button ion-button item-right (click)="postRequest()">Interested</button>
 
- <button ion-button (click)="loadJson()">Load users</button>
+
+
 
  
  
- <ion-list>
-    <ion-item *ngFor="let user of users">
-      
-      <h2>{{user.Title}} {{user.Location}}</h2>
-      <br/>
-      <p>{{user.Date}}</p>
-    </ion-item>
-  </ion-list>
- <button ion-button item-right (click)="postRequest()">Interested</button> 
+
+
+
+
+<ion-item>
+  <ion-label floating>Username</ion-label>
+  <ion-input [(ngModel)]="profile.username"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label floating>firstname</ion-label>
+  <ion-input [(ngModel)]="profile.firstname"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label floating>LastName</ion-label>
+  <ion-input [(ngModel)]="profile.lastname"></ion-input>
+</ion-item>
+
+
+<button ion-button block clear (click)="createProfile()">Create Profile</button>
+
 </ion-content>
 
 

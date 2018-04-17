@@ -27,22 +27,23 @@ import { NetworkEngineProvider } from '../providers/network-engine/network-engin
 import { HttpClientModule } from '@angular/common/http';
 import { Firebase } from '@ionic-native/firebase';
 import { Push } from '@ionic-native/push';
- /*import { AngularFirestoreModule} from 'angularfire2/firestore';
-import { FcmProvider } from '../providers/fcm/fcm';
-import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule} from 'angularfire2/firestore';
+
+import { AngularFireModule} from 'angularfire2';
 import { AngularFireStorageModule} from 'angularfire2/storage';
 import { AngularFireAuthModule} from 'angularfire2/auth'; 
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
-const firebase ={
-  
-  apiKey: "AIzaSyBGM4oT6gmKxjNpFlUxy0v-yRcWEJk7IIs",
-  authDomain: "signspin-app.firebaseapp.com",
-  databaseURL: "https://signspin-app.firebaseio.com",
-  projectId: "signspin-app",
-  storageBucket: "signspin-app.appspot.com",
-  messagingSenderId: "483860303310"
 
-} */
+var config = {
+  apiKey: "AIzaSyAEITsjmRjiUxpzj25m4rZ8VtT_bXzMapM",
+  authDomain: "myproject-2c6c2.firebaseapp.com",
+  databaseURL: "https://myproject-2c6c2.firebaseio.com",
+  projectId: "myproject-2c6c2",
+  storageBucket: "myproject-2c6c2.appspot.com",
+  messagingSenderId: "468750777039"
+};
+
 
 
 
@@ -72,10 +73,11 @@ const firebase ={
     IonicModule.forRoot(MyApp),
     HttpModule,
     HttpClientModule,
-   /* AngularFireModule.initializeApp(firebase),
+    AngularFireModule.initializeApp(config),
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireAuthModule */
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
 
     
     

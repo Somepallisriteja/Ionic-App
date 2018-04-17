@@ -4,6 +4,12 @@ import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { NetworkEngineProvider } from '../../providers/network-engine/network-engine';
 import { NgForm } from '@angular/forms';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase} from 'angularfire2/database';
+import { Profile } from '../../models/profile';
+
+
+
 
 
 /*import {AngularFireDatabase} from 'angularfire2/database';
@@ -21,12 +27,18 @@ declare let FCMPlugin;  */
 })
 
 export class ProfilePage {
+
+  profile = {} as Profile
+
+
  /*firestore =  firebase.database().ref('/pushtokens');
   firemsg = firebase.database().ref('/messages');  */
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public http: Http,
     public networkprovider: NetworkEngineProvider,
+    private afAuth: AngularFireAuth,
+    private afDatabase: AngularFireDatabase
    /* private platform: Platform
     public afd: AngularFireDatabase*/
   ) {
@@ -92,38 +104,12 @@ export class ProfilePage {
   }  */
 }
 
-users: any;
 
-loadJson(){
-  this.http.get('https://sheetsu.com/apis/v1.0bu/0f1648314220')
-  .map(res => res.json())
-  .subscribe( res=>{
-    this.users = res.Sheet1;
-  },(err) =>{
-  alert("failed loading json data");
-  });
-}
  
  
-postRequest() {
-  var headers = new Headers();
-  headers.append("Accept", 'application/json');
-  headers.append('Content-Type', 'application/json' );
-  let options = new RequestOptions({ headers: headers });
 
-  let postParams = {
-    Title: 'Spinning',
-    Location: 'wittenberger'
-    
-  }
   
-  this.http.post("https://sheetsu.com/apis/v1.0bu/0f1648314220", JSON.stringify(postParams), options)
-    .subscribe(data => {
-      console.log(data);
-     }, error => {
-      console.log(error);// Error getting the data
-    });
-}
+
 
 
 
@@ -137,6 +123,14 @@ postRequest() {
 } */
 onAddItem(form: NgForm){
   console.log(form);
+
+}
+
+
+createProfile(){
+  this.afAuth.authState.take(1).subscribe(auth => {
+   this.afDatabase.list(`profile/${auth.uid}`).push(this.profile);
+  })
 }
 
 }
