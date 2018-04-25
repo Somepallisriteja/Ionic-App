@@ -10,6 +10,7 @@ import { MyshiftsPage } from '../myshifts/myshifts';
 
 
 
+
 @Component({
   selector: 'page-shiftplanning',
   templateUrl: 'shiftplanning.html',
@@ -18,7 +19,8 @@ import { MyshiftsPage } from '../myshifts/myshifts';
 export class ShiftplanningPage {
   comingshiftspage = ComingshiftsPage;
 
-  constructor(public navCtrl: NavController){
+  constructor(public navCtrl: NavController,
+ ){
 
   }
 
@@ -27,9 +29,13 @@ export class ShiftplanningPage {
    }
    
    onload(){
-     this.navCtrl.push(OpenshiftsPage);
+    
 
-   }
+      this.navCtrl.push(OpenshiftsPage);
+    }
+     
+
+   
  
    pageload(){
      this.navCtrl.push(ClosedshiftsPage);

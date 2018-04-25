@@ -1,0 +1,46 @@
+<ion-header>
+
+  <ion-navbar>
+      <ion-buttons end>
+        <button ion-button icon-only menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+      <img src="http://oi68.tinypic.com/2eupsb5.jpg" height="30px" width="90px">
+
+    <ion-title text-center>SignSpin</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+  
+
+
+
+
+
+ 
+ 
+
+
+
+
+<ion-item>
+  <ion-label floating>Username</ion-label>
+  <ion-input [(ngModel)]="profile.username"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label floating>firstname</ion-label>
+  <ion-input [(ngModel)]="profile.firstname"></ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label floating>LastName</ion-label>
+  <ion-input [(ngModel)]="profile.lastname"></ion-input>
+</ion-item>
+
+
+<button ion-button block clear (click)="createProfile()">Create Profile</button>
+
+</ion-content>

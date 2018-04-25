@@ -9,55 +9,19 @@
       </ion-buttons>
       <img src="http://oi68.tinypic.com/2eupsb5.jpg" height="30px" width="90px">
 
-    <ion-title text-center>Profile Mr</ion-title>
+    <ion-title text-center>Profile</ion-title>
   </ion-navbar>
 
 </ion-header>
 <ion-content padding>
-  <form #f="ngForm" (ngSubmit)= "onAddItem(f)">
-  <ion-list>
-    <ion-item>
-      <ion-label floating>Name</ion-label>
-      <ion-input type="text" name="name" ngModel></ion-input>
-    </ion-item>
   
-    <ion-item>
-      <ion-label floating>City</ion-label>
-      <ion-input type="text" name="city" ngModel></ion-input>
-    </ion-item>
-  
-  </ion-list>
+<!--<p>Username: {{(profileData | async)?.username}}</p>
+<p>Firstname: {{(profileData | async)?.firstname}}</p>
+<p>Lastname: {{(profileData | async)?.lastname}}</p>  -->
 
-<button ion-button block >Add Item</button>
-</form>
+<h5>Welcome to SignSpin Application</h5>
+<p>for more information <a href="http://www.signspin.de/">Click here</a></p>
 
-
-
-
-
- 
- 
-
-
-
-
-<ion-item>
-  <ion-label floating>Username</ion-label>
-  <ion-input [(ngModel)]="profile.username"></ion-input>
-</ion-item>
-
-<ion-item>
-  <ion-label floating>firstname</ion-label>
-  <ion-input [(ngModel)]="profile.firstname"></ion-input>
-</ion-item>
-
-<ion-item>
-  <ion-label floating>LastName</ion-label>
-  <ion-input [(ngModel)]="profile.lastname"></ion-input>
-</ion-item>
-
-
-<button ion-button block clear (click)="createProfile()">Create Profile</button>
 
 </ion-content>
 

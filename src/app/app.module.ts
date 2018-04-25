@@ -33,6 +33,7 @@ import { AngularFireModule} from 'angularfire2';
 import { AngularFireStorageModule} from 'angularfire2/storage';
 import { AngularFireAuthModule} from 'angularfire2/auth'; 
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { HomePage } from '../pages/home/home';
 
 
 var config = {
@@ -65,7 +66,8 @@ var config = {
     OpenShiftPage,
     ClosedshiftsPage,
     DetailsPage,
-    MyshiftsPage
+    MyshiftsPage,
+    HomePage
     
   ],
   imports: [
@@ -100,7 +102,8 @@ var config = {
     OpenshiftsPage,
     ClosedshiftsPage,
     DetailsPage,
-    MyshiftsPage
+    MyshiftsPage,
+    HomePage
   ],
   providers: [
     StatusBar,

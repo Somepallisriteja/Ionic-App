@@ -10,7 +10,8 @@ import firebase from 'firebase';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AuthService } from '../services/auth';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
-import { ProfilePage } from '../pages/profile/profile';
+import { HomePage } from '../pages/home/home';
+
 
 
 
@@ -39,7 +40,7 @@ export class MyApp {
      private push: Push
     ) {
 
-   /*firebase.initializeApp({
+   firebase.initializeApp({
     apiKey: "AIzaSyAEITsjmRjiUxpzj25m4rZ8VtT_bXzMapM",
     authDomain: "myproject-2c6c2.firebaseapp.com",
     databaseURL: "https://myproject-2c6c2.firebaseio.com",
@@ -47,7 +48,7 @@ export class MyApp {
     storageBucket: "",
     messagingSenderId: "468750777039"
         
-      }); */
+      }); 
 
       platform.ready().then(() => {
 
@@ -75,7 +76,7 @@ export class MyApp {
     firebase.auth().onAuthStateChanged(user=> {
         if(user){
           this.isAuthenticated = true;
-          this.rootPage = TabsPage;
+          this.rootPage = HomePage;
         }else{
           this.isAuthenticated= false;
           this.rootPage = LoginpagePage;

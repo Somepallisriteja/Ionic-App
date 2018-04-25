@@ -1,18 +1,24 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams} from 'ionic-angular';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import { NavController, NavParams, ToastController} from 'ionic-angular';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { NetworkEngineProvider } from '../../providers/network-engine/network-engine';
-import { NgForm } from '@angular/forms';
+
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase} from 'angularfire2/database';
+
+import { AngularFireList, AngularFireObject} from 'angularfire2/database';
 import { Profile } from '../../models/profile';
+import { AngularFireDatabase} from 'angularfire2/database';
+import {FirebaseObjectObservable} from 'angularfire2/database-deprecated';
 
 
 
 
 
-/*import {AngularFireDatabase} from 'angularfire2/database';
+
+
+
+/*
 import firebase from 'firebase';
 declare let FCMPlugin;  */
 
@@ -28,7 +34,9 @@ declare let FCMPlugin;  */
 
 export class ProfilePage {
 
-  profile = {} as Profile
+
+profileData: FirebaseObjectObservable<Profile>
+
 
 
  /*firestore =  firebase.database().ref('/pushtokens');
@@ -38,10 +46,41 @@ export class ProfilePage {
     public http: Http,
     public networkprovider: NetworkEngineProvider,
     private afAuth: AngularFireAuth,
-    private afDatabase: AngularFireDatabase
+    private afDatabase: AngularFireDatabase,
+    private toast: ToastController
    /* private platform: Platform
     public afd: AngularFireDatabase*/
-  ) {
+  ) {}
+
+ 
+ionViewWillLoad(){
+  this.afAuth.authState.take(1).subscribe(data=> {
+    if(data && data.email && data.uid){
+      this.toast.create({
+        message: `Welcome to SignSpin Application`,
+        duration: 3000
+      }).present();
+      /*this.profileData = this.afDatabase.object(`Profile/${data.uid}`).valueChanges(); */
+    }
+  })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  /* this.tokensetup().then((token) =>{
     this.storetoken(token);
   }); 
@@ -102,7 +141,7 @@ export class ProfilePage {
      alert('Message not stored');
    })
   }  */
-}
+
 
 
  
@@ -121,16 +160,4 @@ export class ProfilePage {
    console.log("recieved" + JSON.stringify(data.json().data));
  });
 } */
-onAddItem(form: NgForm){
-  console.log(form);
-
-}
-
-
-createProfile(){
-  this.afAuth.authState.take(1).subscribe(auth => {
-   this.afDatabase.list(`profile/${auth.uid}`).push(this.profile);
-  })
-}
-
 }

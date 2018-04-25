@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController,  ActionSheetController  } from 'ionic-angular';
 import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
+import {  Headers, RequestOptions } from '@angular/http';
 
 /**
  * Generated class for the ClosedshiftsPage page.
@@ -19,7 +21,8 @@ export class ClosedshiftsPage {
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
               private loadingCtrl: LoadingController,
-              public http : Http) {
+              public http : Http,
+              private actionSheetController: ActionSheetController) {
   }
 
     /*Loading data from google sheets */
@@ -32,17 +35,70 @@ export class ClosedshiftsPage {
       });
       loading.present();
       
-      this.http.get('https://script.googleusercontent.com/macros/echo?user_content_key=XL3g08RkWYkQ1B9kxtNlOLB1wnFvpNxl1r202tlxGiyIuJhQ_dHrv0xVI2S6f3-NZLOuxajKpQOuFwPyHJRFXJuOMOzz5PENOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMWojr9NvTBuBLhyHCd5hHa1ZsYSbt7G4nMhEEDL32U4DxjO7V7yvmJPXJTBuCiTGh3rUPjpYM_V0PJJG7TIaKp4atKAj0sgjCvhWP5O4WMx-NWhTsU3rluYA_JeiQrwFcjbcj5Ekwq4b7ezrIEivWH_6EBs4LibZVeQl72CFk5TU&lib=MbpKbbfePtAVndrs259dhPT7ROjQYJ8yx')
+      this.http.get('https://sheetsu.com/apis/v1.0bu/0f1648314220')
       .map(res => res.json())
       .subscribe( res=>{
-        loading.dismiss();
-        this.users = res.Service;
+      loading.dismiss();
+        
+        this.users = res;
       },
+      
       (err) =>{
         
       alert("failed loading json data");
       });
       
+    }
+    onInterested(){
+      const actionSheet = this.actionSheetController.create({ //Boiler Plate Code for Action Sheet Controller; Same template used for VIEW Controller and ALERT Controller
+        title: 'Here are your options..!!',
+        buttons: [
+          {
+            text: 'Interested !!',
+            handler: ()=> {
+              var headers = new Headers();
+              headers.append("Accept", 'application/json');
+              headers.append('Content-Type', 'application/json' );
+              const loading = this.loadingCtrl.create({
+                content: 'Sending your request'
+            
+              });
+              loading.present();
+              let options = new RequestOptions({ headers: headers });
+              let postParams = {
+                Request: 'Hi Philipp, I am Interested in doing this job',
+                Others: 'Nothing'
+                
+              }
+              
+              this.http.post("https://sheetsu.com/apis/v1.0bu/0f1648314220", JSON.stringify(postParams), options)
+              .subscribe(data => {
+                console.log(data);
+                
+               },
+               
+                error => {
+                console.log(error);// Error getting the data
+              });
+              loading.dismiss();
+            }
+          },
+          {
+            text:'Not Interested',
+            role: 'destructive', //Makes the text red and gives a destructive effect
+            handler: ()=>{
+              
+            }
+          },
+          {
+            text: 'Cancel',
+            role: 'cancel'     // Handler runs first when you click a button but here we did not mention any handler. so it gets cancelled automatically
+                               
+          }
+          
+        ]
+    });
+    actionSheet.present();
     }
 
 }

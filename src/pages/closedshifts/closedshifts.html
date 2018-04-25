@@ -17,12 +17,10 @@
       Spinning Offer
     </ion-card-title>
     <ion-card-header text-left>
-        <p>Date:    {{user.Datum}}</p>
-        <p>Location: {{ user.LocationName}}</p>
-        <p>Street:   {{ user.ServiceAddress}}</p>
-        <p>Signs:    {{ user.Signs}}</p>
-        <p>DressCode:{{ user.DressCode}}</p>
-        <p>Others:   {{ user.Otherinfo}}</p>
+        <p>Date:    {{user.Date}}</p>
+        <p>Location: {{ user.Location}}</p>
+        <p>Street:   {{ user.Street}}</p>
+      
        
     </ion-card-header>
     <ion-row>
@@ -31,7 +29,7 @@
         ion-button
         large
         clear
-       
+        (click)= "onInterested()"
         ><ion-icon name="eye" icon-only></ion-icon></button>
         
       </ion-col>
@@ -45,4 +43,5 @@
    
   
     </ion-content>
+  
   
