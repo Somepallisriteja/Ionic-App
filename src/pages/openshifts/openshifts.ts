@@ -9,6 +9,8 @@ import 'rxjs/add/operator/map';
 import {  Headers, RequestOptions } from '@angular/http';
 
 
+
+
 @Component({
   selector: 'page-openshifts',
   templateUrl: 'openshifts.html',
@@ -27,33 +29,36 @@ export class OpenshiftsPage {
     
   }
   
-  onNewOpenShift() {
+  /*onNewOpenShift() {
     this.navCtrl.push(EditOpenshiftPage, { mode: 'New' });
   }
   onLoadShift(openShift: shift, index: number) {
     this.navCtrl.push(OpenShiftPage, { openShift: openShift, index: index });
     
-  }
+  }  */
   /*Loading data from google sheets */
   users: any;
 
-  onloadJson(){
-    const loading = this.loadingCtrl.create({
-      content: 'Loading open shifts'
-  
-    });
-    loading.present();
+    onloadJson(){
+      const loading = this.loadingCtrl.create({
+        content: 'Loading open shifts'
     
-    this.http.get('https://script.googleusercontent.com/macros/echo?user_content_key=_Nw5uvR01uJjP4AEsNwl3isSg2nmOxO1aP7lk_BmVUZNKseuU-efVBlsOuNZp5XeQTgA6-mEiG_W5F8bMZ3DAxgYrm3Xr6ITOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMWojr9NvTBuBLhyHCd5hHa1ZsYSbt7G4nMhEEDL32U4DxjO7V7yvmJPXJTBuCiTGh3rUPjpYM_V0PJJG7TIaKp4atKAj0sgjCvhWP5O4WMx-NWhTsU3rluYA_JeiQrwFcjbcj5Ekwq4b7ezrIEivWH3JcyQp4aYcx78aCWslWdLQ&lib=MbpKbbfePtAVndrs259dhPT7ROjQYJ8yx')
-    .map(res => res.json())
-    .subscribe( res=>{
-      loading.dismiss();
-      this.users = res.Upcoming;
-    },
-    (err) =>{
+      });
+      loading.present();
       
-    alert("failed loading json data");
-    });
+      // search?Kunde=JOKEEvents-Berlin-DS-SS
+      this.http.get("https://sheetsu.com/apis/v1.0su/0ba4069455bb/sheets/Open")
+      .map(res => res.json())
+      .subscribe( res=>{
+      loading.dismiss();
+        
+        this.users = res;
+      },
+      
+      (err) =>{
+        
+      alert("failed loading json data");
+      });
     
   }
   onInterested(){
@@ -63,32 +68,38 @@ export class OpenshiftsPage {
         {
           text: 'Interested !!',
           handler: ()=> {
-            var headers = new Headers();
-            headers.append("Accept", 'application/json');
-            headers.append('Content-Type', 'application/json' );
+
+
+            this.navCtrl.push(EditOpenshiftPage);
+            
+            
             const loading = this.loadingCtrl.create({
               content: 'Sending your request'
           
             });
             loading.present();
+            var headers = new Headers();
+            headers.append("Accept", 'application/json');
+            headers.append('Content-Type', 'application/json' );
             let options = new RequestOptions({ headers: headers });
             let postParams = {
-              Request: 'Hi Philipp, I am Interested in doing this job',
-              Others: 'Nothing'
+              ServiceAddress: 'Hi Philipp, I am Interested in doing this job',
+              Message: 'Nothing'
               
             }
             
-            this.http.post("https://sheetsu.com/apis/v1.0bu/0f1648314220", JSON.stringify(postParams), options)
+            this.http.post("https://sheetsu.com/apis/v1.0su/0ba4069455sbb/sheets/IncomingMessages", JSON.stringify(postParams), options)
             .subscribe(data => {
               console.log(data);
+              
               
              },
              
               error => {
               console.log(error);// Error getting the data
             });
-            loading.dismiss();
-          }
+            loading.dismiss();  
+          }   
         },
         {
           text:'Not Interested',

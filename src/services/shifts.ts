@@ -20,6 +20,7 @@ export class ShiftsService{
    this.shifts.push(new shift(Title,location,Street,Day,date,StartTime,EndTime,DressCode,Signs,Otherinfo));
    console.log(this.shifts); 
    
+   
 }
 
     getShifts(){

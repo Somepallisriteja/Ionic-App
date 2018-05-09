@@ -1,11 +1,7 @@
 
 <ion-header>
   <ion-navbar>
-    <ion-buttons end>
-     <button ion-button icon-only (click)="onNewOpenShift()">
-       <ion-icon name="add"></ion-icon>
-     </button>
-    </ion-buttons>
+ 
     <ion-buttons end>
       <button ion-button icon-only (click)="onloadJson()">
         <ion-icon name="refresh"></ion-icon>
@@ -21,7 +17,7 @@
 
 <ion-content padding>
   <button ion-button block (click)="onloadJson()">Click me for open shifts</button>
-  <ion-card *ngFor= "let openShift of openShifts; let i = index">
+  <!--<ion-card *ngFor= "let openShift of openShifts; let i = index">
     <ion-card-title text-center>
       {{openShift.Title}}
     </ion-card-title>
@@ -42,14 +38,14 @@
     </ion-row>
   
   
-  </ion-card>
+  </ion-card>  -->
 
   <ion-card *ngFor= "let user of users; let i = index">
     <ion-card-title text-center>
       Spinning Offer
     </ion-card-title>
     <ion-card-header text-left>
-        <p> Date:    {{user.Datum}}</p>
+        <p> Date:    {{user.Datum }}</p>
         <p>Kunde: {{ user.Kunde}}</p>
         <p>Address:{{ user.ServiceAddress}}</p>
 

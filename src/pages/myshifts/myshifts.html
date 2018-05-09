@@ -8,6 +8,7 @@
 
   <ion-navbar>
     <ion-title>Myshifts</ion-title>
+    <ion-icon name= "backarrow" (click)="onload()">Back</ion-icon>
     
   </ion-navbar>
 
@@ -15,5 +16,24 @@
 
 
 <ion-content padding class="background  ">
+<button (click)="onloadJson()"> click</button>
+  <ion-card *ngFor= "let user of users; let i = index">
+        <ion-card-title text-center>
+          Spinning Offer
+        </ion-card-title>
+        <ion-card-header text-left>
+            <p> Date:    {{user.Datum }}</p>
+            <p>Kunde: {{ user.Kunde}}</p>
+            <p>Address:{{ user.ServiceAddress}}</p>
+    
+            <p>Start:   {{user.SchStart}}</p>
+            <p>End:   {{user.SchEnd}}</p>
+            
+           
+        </ion-card-header>
+        
+      
+      
+      </ion-card>
 
 </ion-content>

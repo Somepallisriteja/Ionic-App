@@ -35,12 +35,12 @@ export class ClosedshiftsPage {
       });
       loading.present();
       
-      this.http.get('https://sheetsu.com/apis/v1.0bu/0f1648314220')
+      this.http.get("https://script.googleusercontent.com/macros/echo?user_content_key=9BY8cRw0av1YxElZpdQjR_pwsW_8mqVxkaxEibSuknwU2-pdUws1ABzjcFGznhqyT2LoiNhaTvNrUJE--tyA-7Vw3BqXKM0LOJmA1Yb3SEsKFZqtv3DaNYcMrmhZHmUMWojr9NvTBuBLhyHCd5hHa1ZsYSbt7G4nMhEEDL32U4DxjO7V7yvmJPXJTBuCiTGh3rUPjpYM_V0PJJG7TIaKp-PZoSi6C_ZuxnbWVsbXJI5608_x34Ih44_gExCCNluhQBrZiU1rCAxgJ5uR8vJ3DQLy2V_-Rv1u92hmPuVvR9E&lib=MbpKbbfePtAVndrs259dhPT7ROjQYJ8yx")
       .map(res => res.json())
       .subscribe( res=>{
       loading.dismiss();
         
-        this.users = res;
+        this.users = res.Planed;
       },
       
       (err) =>{

@@ -7,28 +7,29 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{mode}} Shift</ion-title>
+    <ion-title>Fill it up</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding class="background">
-  <form [formGroup]="shiftForm" (ngSubmit)="onSubmit()">
+  <iframe src="https://sheetsu.com/a/f/664334f4e6ac?embedded=true"
+  width="100%" height="600" frameBorder="0"
+  style="background: transparent; border: 1px solid #dedede;"></iframe>
+
+
+
+  <!--<form [formGroup]="shiftForm" (ngSubmit)="onSubmit()">
     <ion-list>
+  
       <ion-item>
-        <ion-label floating>Title</ion-label>
-        <ion-input 
-        type = "text"
-        formControlName ="Title"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Location</ion-label>
+        <ion-label floating>LocationName</ion-label>
         <ion-input type="text"
        formControlName="location" ></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label floating>Street</ion-label>
+        <ion-label floating>ServiceAddress</ion-label>
         <ion-input type="text" formControlName="Street"></ion-input>
       </ion-item>
       <ion-item>
@@ -48,27 +49,12 @@
         <ion-input type="date" formControlName="date"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label stacked> StartTime</ion-label>
-        <ion-input type="time" formControlName="StartTime"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label stacked> EndTime</ion-label>
-        <ion-input type="time" formControlName="EndTime"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>DressCode</ion-label>
-        <ion-input type="text" formControlName="DressCode"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Signs</ion-label>
-        <ion-input type="text" formControlName="Signs"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Otherinfo</ion-label>
+        <ion-label floating>Message</ion-label>
         <ion-textarea type="text" formControlName="Otherinfo"></ion-textarea>
       </ion-item>
+    
     </ion-list>
     <button ion-button type="submit" block color="light">{{mode}} Shift</button>
-  </form>
+  </form>  -->
 
 </ion-content>

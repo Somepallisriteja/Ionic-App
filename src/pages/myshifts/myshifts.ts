@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
+import { Http } from '@angular/http';
+import { userdetailService } from '../../services/userDetails';
 
 /**
  * Generated class for the MyshiftsPage page.
@@ -15,8 +17,10 @@ import { TabsPage } from '../tabs/tabs';
   templateUrl: 'myshifts.html',
 })
 export class MyshiftsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  users: any;
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+  public loadingCtrl: LoadingController, private http:Http, private userdetails : userdetailService) {
+      this.users = this.userdetails.getuser();
   }
 
   ionViewDidLoad() {
@@ -25,4 +29,27 @@ export class MyshiftsPage {
   onload(){
     this.navCtrl.push(TabsPage)
   } 
+  
+
+    onloadJson(){
+      const loading = this.loadingCtrl.create({
+        content: 'Loading open shifts'
+    
+      });
+      loading.present();
+      
+      // search?Kunde=JOKEEvents-Berlin-DS-SS
+      this.http.get("https://sheetsu.com/apis/v1.0su/0ba4069455bb/sheets/Planed/search?Kunde=JOKEEvents-Berlin-DS-SS")
+      .map(res => res.json())
+      .subscribe( res=>{
+      loading.dismiss();
+        
+        this.users = res;
+      },
+      
+      (err) =>{
+        
+      alert("failed loading json data");
+      });
+    }
 }
