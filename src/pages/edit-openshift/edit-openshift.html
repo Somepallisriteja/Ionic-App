@@ -14,10 +14,55 @@
 
 
 <ion-content padding class="background">
-  <iframe src="https://sheetsu.com/a/f/664334f4e6ac?embedded=true"
-  width="100%" height="600" frameBorder="0"
-  style="background: transparent; border: 1px solid #dedede;"></iframe>
-
+ 
+  <h3 text-center>SignUp Form</h3>
+  <form #f= "ngForm" (ngSubmit)="onClick(f)">
+    <ion-list>
+      <ion-card>
+      <ion-item>
+        <ion-label fixed >FullName</ion-label>
+        <ion-input
+       type="text" 
+        name="fullname"
+        ngModel
+        ></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+      <ion-item>
+        <ion-label fixed >Email</ion-label>
+        <ion-input type="email" 
+       
+        name="email"
+        ngModel
+        required></ion-input>
+      </ion-item>
+      </ion-card>
+      <ion-card>
+      <ion-item>
+          <ion-label fixed >Username</ion-label>
+        <ion-input type="text" 
+        name="userName"
+        ngModel
+        ></ion-input>
+      </ion-item>
+    </ion-card>
+    <ion-card>
+     <ion-item>
+          <ion-label fixed >Password</ion-label>
+          <ion-input 
+          type="password"
+           name="password"
+           ngModel 
+           required
+           [minlength]="6"
+           ></ion-input>
+  
+      </ion-item>
+    </ion-card>
+    </ion-list>
+    <button ion-button block type="submit" [disabled]="!f.valid">SignUp</button>
+  </form>
 
 
   <!--<form [formGroup]="shiftForm" (ngSubmit)="onSubmit()">

@@ -4,6 +4,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ShiftsService } from '../../services/shifts';
 import { OpenshiftsPage } from '../openshifts/openshifts';
 import { Http } from '@angular/http';
+import { NgForm } from '@angular/forms';
+import {  Headers, RequestOptions } from '@angular/http';
 
 
 
@@ -22,7 +24,19 @@ export class EditOpenshiftPage implements OnInit {
      public http : Http) {
      
   }
- 
+  onClick(form: NgForm){
+  
+    var headers = new Headers();
+       headers.append("Accept", 'application/json');
+        headers.append('Content-Type', 'application/json' );
+       let options = new RequestOptions({ headers: headers });
+       this.http.post("https://sheetsu.com/apis/v1.0su/0ba4069455bb/sheets/Users", JSON.stringify(form.value), options)
+       .subscribe(data => {
+         console.log(data);
+       }) 
+      }
+
+
 ngOnInit(){
   this.mode = this.navParams.get('mode');
   this.initializeForm();

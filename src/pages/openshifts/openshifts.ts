@@ -46,7 +46,6 @@ export class OpenshiftsPage {
       });
       loading.present();
       
-      // search?Kunde=JOKEEvents-Berlin-DS-SS
       this.http.get("https://sheetsu.com/apis/v1.0su/0ba4069455bb/sheets/Open")
       .map(res => res.json())
       .subscribe( res=>{

@@ -12,6 +12,7 @@ import { AuthService } from '../../services/auth';
   templateUrl: 'loginpage.html',
 })
 export class LoginpagePage {
+  
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
@@ -36,6 +37,7 @@ onSignin(form: NgForm){
   this.authService.signin(form.value.email, form.value.password)
   .then( data =>
     {
+      console.log(data.email);
     loading.dismiss();
   })
   .catch(error =>

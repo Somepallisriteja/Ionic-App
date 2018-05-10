@@ -57,4 +57,62 @@
         
     </ion-list>
 
+    <button ion-button block (click)="onloadJson()">Click me for open shifts</button>
+    <!--<ion-card *ngFor= "let openShift of openShifts; let i = index">
+      <ion-card-title text-center>
+        {{openShift.Title}}
+      </ion-card-title>
+      <ion-card-header text-center>
+          <p> Date: {{openShift.date}}</p>
+          <p>Location:{{ openShift.location}}</p>
+          <p>Timing: {{openShift.StartTime}} to {{openShift.EndTime}}</p>
+      </ion-card-header>
+      <ion-row>
+        <ion-col text-right>
+          <button
+          ion-button
+          small
+          clear
+          (click)="onLoadShift(openShift, i)">Details</button>
+          
+        </ion-col>
+      </ion-row>
+    
+    
+    </ion-card>  -->
+  
+    <ion-card *ngFor= "let user of users; let i = index">
+      <ion-card-title text-center>
+        Spinning Offer
+      </ion-card-title>
+      <ion-card-header text-left>
+          <p> Date:    {{user.Datum }}</p>
+          <p>Kunde: {{ user.Kunde}}</p>
+          <p>Address:{{ user.ServiceAddress}}</p>
+  
+          <p>Start:   {{user.SchStart}}</p>
+          <p>End:   {{user.SchEnd}}</p>
+          
+         
+      </ion-card-header>
+      <ion-row>
+        <ion-col text-right>
+          <button
+          ion-button
+          large
+          clear
+          
+          ><ion-icon name="eye" icon-only></ion-icon></button>
+          
+        </ion-col>
+      </ion-row>
+    
+    
+    </ion-card>
+    
+    
+    
+     
+    
+
 </ion-content>
