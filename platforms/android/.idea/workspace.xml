@@ -1978,15 +1978,15 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidBuildScriptsGroupNode" />
+              <option name="myItemId" value="CordovaLib" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -1994,7 +1994,7 @@
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="device.picker.selection" value="RQ30046YUK" />
+    <property name="device.picker.selection" value="Pixel_2_XL_API_25" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -2078,7 +2078,8 @@
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
       <method>
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1524644426303" />
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1526686433245" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2176,7 +2177,10 @@
       </Profilers>
       <option name="DEEP_LINK" value="" />
       <option name="ACTIVITY_CLASS" value="" />
-      <method />
+      <method>
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1526686433245" />
+      </method>
     </configuration>
     <list size="1">
       <item index="0" class="java.lang.String" itemvalue="Android App.android" />

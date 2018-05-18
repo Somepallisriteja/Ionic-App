@@ -34,7 +34,7 @@ onSignin(form: NgForm){
     content:'Signing you in ...'
   });
   loading.present();
-  this.authService.signin(form.value.email, form.value.password)
+  this.authService.signin(form.value.email, form.value.password, form.value.displayName)
   .then( data =>
     {
       console.log(data.email);

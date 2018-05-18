@@ -8,7 +8,9 @@
 
   <ion-navbar>
     <ion-title>Myshifts</ion-title>
-    <ion-icon name= "backarrow" (click)="onload()">Back</ion-icon>
+
+
+    <img src="http://oi68.tinypic.com/2eupsb5.jpg" height="30px" width="90px">
     
   </ion-navbar>
 
@@ -16,7 +18,14 @@
 
 
 <ion-content padding class="background  ">
-<button (click)="onloadJson()"> click</button>
+
+<button ion-button block (click)="onloadJson()">Click here for your shifts</button>
+
+<ion-card>
+
+
+</ion-card>
+
   <ion-card *ngFor= "let user of users; let i = index">
         <ion-card-title text-center>
           Spinning Offer

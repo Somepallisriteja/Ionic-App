@@ -45,6 +45,8 @@
       Spinning Offer
     </ion-card-title>
     <ion-card-header text-left>
+
+        <p>   #{{user.ID}}</p>
         <p> Date:    {{user.Datum }}</p>
         <p>Kunde: {{ user.Kunde}}</p>
         <p>Address:{{ user.ServiceAddress}}</p>
@@ -60,7 +62,7 @@
         ion-button
         large
         clear
-        (click)= "onInterested()"
+        (click)= "onInterested(user)"
         ><ion-icon name="eye" icon-only></ion-icon></button>
         
       </ion-col>

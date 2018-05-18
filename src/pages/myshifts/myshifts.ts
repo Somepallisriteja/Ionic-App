@@ -48,7 +48,7 @@ export class MyshiftsPage {
 
     onloadJson(){
       const loading = this.loadingCtrl.create({
-        content: 'Loading open shifts'
+        content: 'Loading your shifts'
     
       });
       loading.present();
@@ -63,11 +63,19 @@ export class MyshiftsPage {
       loading.dismiss();
         console.log(res)
         this.users = res;
+
+        
       },
       
       (err) =>{
         
       alert("failed loading json data");
       });
+    }
+
+
+    defaultMessage(){
+
+
     }
 }

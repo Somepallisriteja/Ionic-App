@@ -6,6 +6,7 @@ import { OpenshiftsPage } from '../openshifts/openshifts';
 import { Http } from '@angular/http';
 import { NgForm } from '@angular/forms';
 import {  Headers, RequestOptions } from '@angular/http';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 
 
@@ -21,9 +22,19 @@ export class EditOpenshiftPage implements OnInit {
   constructor(public navCtrl: NavController,
      public navParams: NavParams,
      private shiftService:ShiftsService,
-     public http : Http) {
+     public http : Http,
+     private afAuth: AngularFireAuth) {
      
   }
+
+
+  users: any;
+  userEmail:any;
+   ionViewDidLoad(){
+     console.log(this.navParams.get('Datum'));
+     this.getCurrentUser();
+     
+   }
   onClick(form: NgForm){
   
     var headers = new Headers();
@@ -35,6 +46,13 @@ export class EditOpenshiftPage implements OnInit {
          console.log(data);
        }) 
       }
+      getCurrentUser() {
+        this.afAuth.authState.subscribe(data => {
+          console.log('A informacao de data ' , data);
+          this.userEmail = data.email;
+          console.log(this.userEmail);
+        });
+      }     
 
 
 ngOnInit(){

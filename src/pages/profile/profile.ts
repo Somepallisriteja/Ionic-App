@@ -36,7 +36,9 @@ export class ProfilePage {
 
 
 profileData: FirebaseObjectObservable<Profile>
-
+ userEmail: any;
+ displayname: any;
+ password: any;
 
 
  /*firestore =  firebase.database().ref('/pushtokens');
@@ -54,6 +56,7 @@ profileData: FirebaseObjectObservable<Profile>
 
  
 ionViewWillLoad(){
+ this.getCurrentUser();
   this.afAuth.authState.take(1).subscribe(data=> {
     if(data && data.email && data.uid){
       this.toast.create({
@@ -63,6 +66,15 @@ ionViewWillLoad(){
       /*this.profileData = this.afDatabase.object(`Profile/${data.uid}`).valueChanges(); */
     }
   })
+}
+getCurrentUser() {
+  this.afAuth.authState.subscribe(data => {
+    console.log('A informacao de data ' , data);
+    this.userEmail = data.email;
+    this.displayname = data.displayName;
+   
+    console.log(this.displayname);
+  });
 }
 
 
