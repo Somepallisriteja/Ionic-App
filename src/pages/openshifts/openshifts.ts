@@ -32,6 +32,7 @@ export class OpenshiftsPage {
 
   ionViewWillEnter() {
     this.openShifts = this.shiftService.getShifts();
+    this.getCurrentUser();
     
   }
 
@@ -94,13 +95,8 @@ export class OpenshiftsPage {
             //this.navCtrl.push(EditOpenshiftPage, user);
             this.messageBox(user);
             
-            const loading = this.loadingCtrl.create({
-              content: 'Sending your request'
           
-            });
-            loading.present();
-           
-            loading.dismiss();  
+              
           }   
         },
         {
@@ -129,15 +125,16 @@ this.createAlert(user).present();
   private createAlert(user){
     // console.log('alert',user);
     return this.alertCtrl.create({
-     title: 'Message',
+     title: 'Add Message',
      inputs: [
        {
-       
+       name: 'name',
        placeholder: 'Message',
        type: 'ion-textarea',
        
       
        }
+      
       ],
 
 
@@ -148,8 +145,9 @@ this.createAlert(user).present();
           role: 'cancel'
         },
         {
-          text: 'Add',
+          text: 'Send Request',
           handler: data =>{
+            
             /*if(data.trim() == '' || data == null){
              const toast = this.toastCtrl.create({
                message:'Please enter a valid value',
@@ -161,22 +159,37 @@ this.createAlert(user).present();
             
              return;
             }*/
+
+            const loading = this.loadingCtrl.create({
+              content: 'Sending your request'
+            });
+            loading.present();
+           
+            
             let headers = new Headers();
             headers.append("Accept", 'application/json');
             headers.append('Content-Type', 'application/json' );
             let options = new RequestOptions({ headers: headers });
-            this.message = data;
+            // this.message = JSON.parse(data);
             
-            console.log('in add',data, user);
+            console.log('in add',data.name, user);
             let postParams = user;
             let email= this.userEmail;
-            
-            postParams.message = data;
+            postParams.email = this.userEmail;
+            postParams.message = data.name;
+            postParams.timeStamp = new Date().toLocaleString();
             
            
-              this.http.post("https://sheetsu.com/apis/v1.0su/0ba4069455bb/sheets/IncomingMessages", JSON.stringify(postParams, email), options)
+              this.http.post("https://sheetsu.com/apis/v1.0su/0ba4069455bb/sheets/IncomingMessages", JSON.stringify(postParams), options)
               .subscribe(data => {
                 console.log(data);
+                loading.dismiss();
+                const alert = this.alertCtrl.create({
+                  title: 'Thank you',
+                  message: 'Request sent successfully !',
+                  buttons: ['Ok']
+                });
+                alert.present();
                },
                
                 error => {

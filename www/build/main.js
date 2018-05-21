@@ -83,10 +83,10 @@ var ShiftsService = (function () {
 var AuthService = (function () {
     function AuthService() {
     }
-    AuthService.prototype.signup = function (email, password, displayName) {
+    AuthService.prototype.signup = function (email, password) {
         return __WEBPACK_IMPORTED_MODULE_0_firebase___default.a.auth().createUserWithEmailAndPassword(email, password);
     };
-    AuthService.prototype.signin = function (email, password, displayName) {
+    AuthService.prototype.signin = function (email, password) {
         return __WEBPACK_IMPORTED_MODULE_0_firebase___default.a.auth().signInWithEmailAndPassword(email, password);
     };
     AuthService.prototype.logout = function () {
@@ -190,6 +190,7 @@ var OpenshiftsPage = (function () {
     }
     OpenshiftsPage.prototype.ionViewWillEnter = function () {
         this.openShifts = this.shiftService.getShifts();
+        this.getCurrentUser();
     };
     OpenshiftsPage.prototype.getCurrentUser = function () {
         var _this = this;
@@ -226,11 +227,6 @@ var OpenshiftsPage = (function () {
                         //
                         //this.navCtrl.push(EditOpenshiftPage, user);
                         _this.messageBox(user);
-                        var loading = _this.loadingCtrl.create({
-                            content: 'Sending your request'
-                        });
-                        loading.present();
-                        loading.dismiss();
                     }
                 },
                 {
@@ -256,9 +252,10 @@ var OpenshiftsPage = (function () {
         var _this = this;
         // console.log('alert',user);
         return this.alertCtrl.create({
-            title: 'Message',
+            title: 'Add Message',
             inputs: [
                 {
+                    name: 'name',
                     placeholder: 'Message',
                     type: 'ion-textarea',
                 }
@@ -269,7 +266,7 @@ var OpenshiftsPage = (function () {
                     role: 'cancel'
                 },
                 {
-                    text: 'Add',
+                    text: 'Send Request',
                     handler: function (data) {
                         /*if(data.trim() == '' || data == null){
                          const toast = this.toastCtrl.create({
@@ -282,18 +279,31 @@ var OpenshiftsPage = (function () {
                         
                          return;
                         }*/
+                        var loading = _this.loadingCtrl.create({
+                            content: 'Sending your request'
+                        });
+                        loading.present();
                         var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Headers */]();
                         headers.append("Accept", 'application/json');
                         headers.append('Content-Type', 'application/json');
                         var options = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["d" /* RequestOptions */]({ headers: headers });
-                        _this.message = data;
-                        console.log('in add', data, user);
+                        // this.message = JSON.parse(data);
+                        console.log('in add', data.name, user);
                         var postParams = user;
                         var email = _this.userEmail;
-                        postParams.message = data;
-                        _this.http.post("https://sheetsu.com/apis/v1.0su/0ba4069455bb/sheets/IncomingMessages", JSON.stringify(postParams, email), options)
+                        postParams.email = _this.userEmail;
+                        postParams.message = data.name;
+                        postParams.timeStamp = new Date().toLocaleString();
+                        _this.http.post("https://sheetsu.com/apis/v1.0su/0ba4069455bb/sheets/IncomingMessages", JSON.stringify(postParams), options)
                             .subscribe(function (data) {
                             console.log(data);
+                            loading.dismiss();
+                            var alert = _this.alertCtrl.create({
+                                title: 'Thank you',
+                                message: 'Request sent successfully !',
+                                buttons: ['Ok']
+                            });
+                            alert.present();
                         }, function (error) {
                             console.log(error); // Error getting the data
                         });
@@ -306,16 +316,10 @@ var OpenshiftsPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-openshifts',template:/*ion-inline-start:"/Users/sritejasomepalli/Ionic-App/src/pages/openshifts/openshifts.html"*/'\n<ion-header>\n  <ion-navbar>\n \n    <ion-buttons end>\n      <button ion-button icon-only (click)="onloadJson()">\n        <ion-icon name="refresh"></ion-icon>\n      </button>\n     </ion-buttons>\n    <ion-title>Open Shifts</ion-title>\n  </ion-navbar>\n \n</ion-header>\n\n\n\n\n<ion-content padding>\n  <button ion-button block (click)="onloadJson()">Click me for open shifts</button>\n  <!--<ion-card *ngFor= "let openShift of openShifts; let i = index">\n    <ion-card-title text-center>\n      {{openShift.Title}}\n    </ion-card-title>\n    <ion-card-header text-center>\n        <p> Date: {{openShift.date}}</p>\n        <p>Location:{{ openShift.location}}</p>\n        <p>Timing: {{openShift.StartTime}} to {{openShift.EndTime}}</p>\n    </ion-card-header>\n    <ion-row>\n      <ion-col text-right>\n        <button\n        ion-button\n        small\n        clear\n        (click)="onLoadShift(openShift, i)">Details</button>\n        \n      </ion-col>\n    </ion-row>\n  \n  \n  </ion-card>  -->\n\n  <ion-card *ngFor= "let user of users; let i = index">\n    <ion-card-title text-center>\n      Spinning Offer\n    </ion-card-title>\n    <ion-card-header text-left>\n\n        <p>   #{{user.ID}}</p>\n        <p> Date:    {{user.Datum }}</p>\n        <p>Kunde: {{ user.Kunde}}</p>\n        <p>Address:{{ user.ServiceAddress}}</p>\n\n        <p>Start:   {{user.SchStart}}</p>\n        <p>End:   {{user.SchEnd}}</p>\n        \n       \n    </ion-card-header>\n    <ion-row>\n      <ion-col text-right>\n        <button\n        ion-button\n        large\n        clear\n        (click)= "onInterested(user)"\n        ><ion-icon name="eye" icon-only></ion-icon></button>\n        \n      </ion-col>\n    </ion-row>\n  \n  \n  </ion-card>\n  \n  \n  \n   \n  \n    </ion-content>\n  \n'/*ion-inline-end:"/Users/sritejasomepalli/Ionic-App/src/pages/openshifts/openshifts.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_2__services_shifts__["a" /* ShiftsService */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__["a" /* AngularFireAuth */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_shifts__["a" /* ShiftsService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_shifts__["a" /* ShiftsService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _h || Object])
     ], OpenshiftsPage);
     return OpenshiftsPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h;
 }());
 
 //# sourceMappingURL=openshifts.js.map
@@ -566,7 +570,7 @@ var LoginpagePage = (function () {
             content: 'Signing you in ...'
         });
         loading.present();
-        this.authService.signin(form.value.email, form.value.password, form.value.displayName)
+        this.authService.signin(form.value.email, form.value.password)
             .then(function (data) {
             console.log(data.email);
             loading.dismiss();
@@ -826,7 +830,7 @@ var ShiftplanningPage = (function () {
     };
     ShiftplanningPage = ShiftplanningPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-shiftplanning',template:/*ion-inline-start:"/Users/sritejasomepalli/Ionic-App/src/pages/shiftplanning/shiftplanning.html"*/'<!--\n  Generated template for the ShiftplanningPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar>\n        <ion-buttons end>\n          <button ion-button icon-only menuToggle>\n            <ion-icon name="menu"></ion-icon>\n          </button>\n        </ion-buttons>\n        <img src="http://oi68.tinypic.com/2eupsb5.jpg" height="30px" width="90px">\n  \n      <ion-title text-center>Shift Planning</ion-title>\n    </ion-navbar>\n  </ion-header>\n\n\n<ion-content padding class="background">\n    <ion-list>\n        <ion-card color="light">\n            <ion-card-content>\n            <button color="light"\n            ion-item\n            icon-left\n           (click)="onload()"\n          >\n            <ion-icon name="megaphone"></ion-icon>\n            Open shifts</button>\n          </ion-card-content> \n        </ion-card>\n   \n     \n        <ion-card color="light">\n            <ion-card-content>\n            <button color="light"\n            ion-item\n            icon-left\n            (click)= "pageload()">\n            <ion-icon name="megaphone"></ion-icon>\n            Closed shifts</button>\n          </ion-card-content> \n        </ion-card>\n           <ion-card color="light">\n        <ion-card-content>\n        <button color="light"\n        ion-item\n        icon-left\n        (click)= "load()">\n        <ion-icon name="megaphone"></ion-icon>\n        Coming shifts</button>\n      </ion-card-content> \n      </ion-card> \n      \n        \n    </ion-list>\n\n   \n    <!--<ion-card *ngFor= "let openShift of openShifts; let i = index">\n      <ion-card-title text-center>\n        {{openShift.Title}}\n      </ion-card-title>\n      <ion-card-header text-center>\n          <p> Date: {{openShift.date}}</p>\n          <p>Location:{{ openShift.location}}</p>\n          <p>Timing: {{openShift.StartTime}} to {{openShift.EndTime}}</p>\n      </ion-card-header>\n      <ion-row>\n        <ion-col text-right>\n          <button\n          ion-button\n          small\n          clear\n          (click)="onLoadShift(openShift, i)">Details</button>\n          \n        </ion-col>\n      </ion-row>\n    \n    \n    </ion-card>  -->\n  \n    <ion-card *ngFor= "let user of users; let i = index">\n      <ion-card-title text-center>\n        Spinning Offer\n      </ion-card-title>\n      <ion-card-header text-left>\n          <p> Date:    {{user.Datum }}</p>\n          <p>Kunde: {{ user.Kunde}}</p>\n          <p>Address:{{ user.ServiceAddress}}</p>\n  \n          <p>Start:   {{user.SchStart}}</p>\n          <p>End:   {{user.SchEnd}}</p>\n          \n         \n      </ion-card-header>\n      <ion-row>\n        <ion-col text-right>\n          <button\n          ion-button\n          large\n          clear\n          \n          ><ion-icon name="eye" icon-only></ion-icon></button>\n          \n        </ion-col>\n      </ion-row>\n    \n    \n    </ion-card>\n    \n    \n    \n     \n    \n\n</ion-content>\n'/*ion-inline-end:"/Users/sritejasomepalli/Ionic-App/src/pages/shiftplanning/shiftplanning.html"*/,
+            selector: 'page-shiftplanning',template:/*ion-inline-start:"/Users/sritejasomepalli/Ionic-App/src/pages/shiftplanning/shiftplanning.html"*/'<!--\n  Generated template for the ShiftplanningPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n    <ion-navbar>\n        <ion-buttons end>\n          <button ion-button icon-only menuToggle>\n            <ion-icon name="menu"></ion-icon>\n          </button>\n        </ion-buttons>\n        <img src="http://oi68.tinypic.com/2eupsb5.jpg" height="30px" width="90px">\n  \n      <ion-title text-center>Shift Planning</ion-title>\n    </ion-navbar>\n  </ion-header>\n\n\n<ion-content padding class="background">\n    <ion-list>\n        <ion-card color="light">\n            <ion-card-content>\n            <button color="light"\n            ion-item\n            icon-left\n           (click)="onload()"\n          >\n            <ion-icon name="megaphone"></ion-icon>\n            Open shifts</button>\n          </ion-card-content> \n        </ion-card>\n   \n     \n        <ion-card color="light">\n            <ion-card-content>\n            <button color="light"\n            ion-item\n            icon-left\n            (click)= "pageload()">\n            <ion-icon name="megaphone"></ion-icon>\n            Closed shifts</button>\n          </ion-card-content> \n        </ion-card>\n           <ion-card color="light">\n        <ion-card-content>\n        <button color="light"\n        ion-item\n        icon-left\n        (click)= "load()">\n        <ion-icon name="megaphone"></ion-icon>\n        Coming shifts</button>\n      </ion-card-content> \n      </ion-card> \n      \n        \n    </ion-list>\n\n    \n    <!--<ion-card *ngFor= "let openShift of openShifts; let i = index">\n      <ion-card-title text-center>\n        {{openShift.Title}}\n      </ion-card-title>\n      <ion-card-header text-center>\n          <p> Date: {{openShift.date}}</p>\n          <p>Location:{{ openShift.location}}</p>\n          <p>Timing: {{openShift.StartTime}} to {{openShift.EndTime}}</p>\n      </ion-card-header>\n      <ion-row>\n        <ion-col text-right>\n          <button\n          ion-button\n          small\n          clear\n          (click)="onLoadShift(openShift, i)">Details</button>\n          \n        </ion-col>\n      </ion-row>\n    \n    \n    </ion-card>  -->\n  \n    <ion-card *ngFor= "let user of users; let i = index">\n      <ion-card-title text-center>\n        Spinning Offer\n      </ion-card-title>\n      <ion-card-header text-left>\n          <p> Date:    {{user.Datum }}</p>\n          <p>Kunde: {{ user.Kunde}}</p>\n          <p>Address:{{ user.ServiceAddress}}</p>\n  \n          <p>Start:   {{user.SchStart}}</p>\n          <p>End:   {{user.SchEnd}}</p>\n          \n         \n      </ion-card-header>\n      <ion-row>\n        <ion-col text-right>\n          <button\n          ion-button\n          large\n          clear\n          \n          ><ion-icon name="eye" icon-only></ion-icon></button>\n          \n        </ion-col>\n      </ion-row>\n    \n    \n    </ion-card>\n    \n    \n    \n     \n    \n\n</ion-content>\n'/*ion-inline-end:"/Users/sritejasomepalli/Ionic-App/src/pages/shiftplanning/shiftplanning.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */],
@@ -915,7 +919,7 @@ var SignupPage = (function () {
             content: 'Signing you up'
         });
         loading.present();
-        this.authService.signup(form.value.email, form.value.password, form.value.displayName)
+        this.authService.signup(form.value.email, form.value.password)
             .then(function (data) {
             loading.dismiss();
         })
@@ -933,12 +937,10 @@ var SignupPage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-signup',template:/*ion-inline-start:"/Users/sritejasomepalli/Ionic-App/src/pages/signup/signup.html"*/'\n<ion-header>\n    \n  <ion-navbar>\n      <ion-buttons end>\n          <button ion-button icon-only menuToggle>\n            <ion-icon name="menu"></ion-icon>\n          </button>\n        </ion-buttons>\n    <ion-title>SignUp Page</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="background">\n\n  <h3 text-center>SignUp Form</h3>\n<form #f= "ngForm" (ngSubmit)="onSignup(f)">\n  <ion-list>\n    <ion-card>\n    <ion-item>\n      <ion-label fixed >FullName</ion-label>\n      <ion-input\n     type="text" \n      name="displayName"\n      ngModel\n      required\n      ></ion-input>\n    </ion-item>\n  </ion-card>\n  <ion-card>\n    <ion-item>\n      <ion-label fixed >Email</ion-label>\n      <ion-input type="email" \n     \n      name="email"\n      ngModel\n      required></ion-input>\n    </ion-item>\n    </ion-card>\n    \n  <ion-card>\n   <ion-item>\n        <ion-label fixed >Password</ion-label>\n        <ion-input \n        type="password"\n         name="password"\n         ngModel \n         required\n         [minlength]="6"\n         ></ion-input>\n\n    </ion-item>\n  </ion-card>\n  </ion-list>\n  <button ion-button block type="submit" [disabled]="!f.valid">SignUp</button>\n</form>\n</ion-content>\n'/*ion-inline-end:"/Users/sritejasomepalli/Ionic-App/src/pages/signup/signup.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_auth__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_auth__["a" /* AuthService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* LoadingController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* AlertController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */]) === "function" && _d || Object])
     ], SignupPage);
     return SignupPage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=signup.js.map
@@ -1417,7 +1419,7 @@ var MyApp = (function () {
         __WEBPACK_IMPORTED_MODULE_7_firebase___default.a.auth().onAuthStateChanged(function (user) {
             if (user) {
                 _this.isAuthenticated = true;
-                _this.rootPage = __WEBPACK_IMPORTED_MODULE_5__pages_loginpage_loginpage__["a" /* LoginpagePage */];
+                _this.rootPage = __WEBPACK_IMPORTED_MODULE_8__pages_tabs_tabs__["a" /* TabsPage */];
             }
             else {
                 _this.isAuthenticated = false;
@@ -1467,7 +1469,7 @@ var MyApp = (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/sritejasomepalli/Ionic-App/src/app/app.html"*/'<ion-menu [content]="nav">\n    <ion-header>\n        <ion-toolbar>\n            <ion-title>\n                Menu\n            </ion-title>\n        </ion-toolbar>\n    </ion-header>\n    <ion-content class="background" >\n        <ion-list class="background">\n            <button\n            ion-item\n            icon-left\n            (click)= "onLoad(MyshiftsPage)"\n            *ngIf="isAuthenticated">\n           \n            <ion-icon name="book"></ion-icon>\n            MyShifts</button>\n            <button\n            ion-item\n            icon-left\n            (click)= "onLogout()"\n            *ngIf="isAuthenticated">\n            <ion-icon name="log-out"></ion-icon>\n\n            LogOut</button>\n        </ion-list>\n    </ion-content>\n\n</ion-menu> \n<ion-nav [root]="rootPage" #nav></ion-nav>\n\n'/*ion-inline-end:"/Users/sritejasomepalli/Ionic-App/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/Users/sritejasomepalli/Ionic-App/src/app/app.html"*/'<ion-menu [content]="nav">\n    <ion-header>\n        <ion-toolbar>\n            <ion-title>\n                Menu\n            </ion-title>\n        </ion-toolbar>\n    </ion-header>\n    <ion-content class="background" >\n        <ion-list class="background">\n           <!-- <button\n            ion-item\n            icon-left\n            (click)= "onLoad(MyshiftsPage)"\n            *ngIf="isAuthenticated">\n           \n            <ion-icon name="book"></ion-icon>\n            MyShifts</button>   -->\n            <button\n            ion-item\n            icon-left\n            (click)= "onLogout()"\n            *ngIf="isAuthenticated">\n            <ion-icon name="log-out"></ion-icon>\n\n            LogOut</button>\n        </ion-list>\n    </ion-content>\n\n</ion-menu> \n<ion-nav [root]="rootPage" #nav></ion-nav>\n\n'/*ion-inline-end:"/Users/sritejasomepalli/Ionic-App/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */],
             __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
@@ -1710,12 +1712,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var MyshiftsPage = (function () {
-    function MyshiftsPage(navCtrl, navParams, loadingCtrl, http, afAuth) {
+    function MyshiftsPage(navCtrl, navParams, loadingCtrl, http, afAuth, alertCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.loadingCtrl = loadingCtrl;
         this.http = http;
         this.afAuth = afAuth;
+        this.alertCtrl = alertCtrl;
     }
     MyshiftsPage.prototype.getCurrentUser = function () {
         var _this = this;
@@ -1747,20 +1750,31 @@ var MyshiftsPage = (function () {
             .map(function (res) { return res.json(); })
             .subscribe(function (res) {
             loading.dismiss();
-            console.log(res);
+            console.log(res, 'in res');
             _this.users = res;
         }, function (err) {
-            alert("failed loading json data");
+            _this.presentAlert();
+            loading.dismiss();
         });
+    };
+    MyshiftsPage.prototype.presentAlert = function () {
+        var alert = this.alertCtrl.create({
+            title: 'Hi',
+            subTitle: 'Currently you have no shifts scheduled:)',
+            buttons: ['Dismiss']
+        });
+        alert.present();
     };
     MyshiftsPage.prototype.defaultMessage = function () {
     };
     MyshiftsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-myshifts',template:/*ion-inline-start:"/Users/sritejasomepalli/Ionic-App/src/pages/myshifts/myshifts.html"*/'<!--\n  Generated template for the MyshiftsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Myshifts</ion-title>\n\n\n    <img src="http://oi68.tinypic.com/2eupsb5.jpg" height="30px" width="90px">\n    \n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="background  ">\n\n<button ion-button block (click)="onloadJson()">Click here for your shifts</button>\n\n<ion-card>\n\n\n</ion-card>\n\n  <ion-card *ngFor= "let user of users; let i = index">\n        <ion-card-title text-center>\n          Spinning Offer\n        </ion-card-title>\n        <ion-card-header text-left>\n            <p> Date:    {{user.Datum }}</p>\n            <p>Kunde: {{ user.Kunde}}</p>\n            <p>Address:{{ user.ServiceAddress}}</p>\n    \n            <p>Start:   {{user.SchStart}}</p>\n            <p>End:   {{user.SchEnd}}</p>\n            \n           \n        </ion-card-header>\n        \n      \n      \n      </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/Users/sritejasomepalli/Ionic-App/src/pages/myshifts/myshifts.html"*/,
+            selector: 'page-myshifts',template:/*ion-inline-start:"/Users/sritejasomepalli/Ionic-App/src/pages/myshifts/myshifts.html"*/'<!--\n  Generated template for the MyshiftsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>MyShifts</ion-title>\n    <ion-buttons end>\n      <button ion-button icon-only menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n    </ion-buttons>\n\n\n    <img src="http://oi68.tinypic.com/2eupsb5.jpg" height="30px" width="90px">\n    \n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding class="background  ">\n\n<button ion-button block (click)="onloadJson()">Click here for your shifts</button>\n\n<ion-card>\n\n\n</ion-card>\n\n  <ion-card *ngFor= "let user of users; let i = index">\n        <ion-card-title text-center>\n          Spinning Offer\n        </ion-card-title>\n        <ion-card-header text-left>\n            <p> Date:    {{user.Datum }}</p>\n            <p>Kunde: {{ user.Kunde}}</p>\n            <p>Address:{{ user.ServiceAddress}}</p>\n    \n            <p>Start:   {{user.SchStart}}</p>\n            <p>End:   {{user.SchEnd}}</p>\n            \n           \n        </ion-card-header>\n        \n      \n      \n      </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/Users/sritejasomepalli/Ionic-App/src/pages/myshifts/myshifts.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__["a" /* AngularFireAuth */]])
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */],
+            __WEBPACK_IMPORTED_MODULE_4_angularfire2_auth__["a" /* AngularFireAuth */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
     ], MyshiftsPage);
     return MyshiftsPage;
 }());

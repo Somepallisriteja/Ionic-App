@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { Http } from '@angular/http';
 
@@ -22,7 +22,9 @@ export class MyshiftsPage {
   users: any;
   userEmail:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,
-  public loadingCtrl: LoadingController, private http:Http, private afAuth: AngularFireAuth) {
+  public loadingCtrl: LoadingController, private http:Http,
+  private afAuth: AngularFireAuth,
+  private alertCtrl: AlertController) {
     
   }
 
@@ -61,7 +63,7 @@ export class MyshiftsPage {
       .map(res => res.json())
       .subscribe( res=>{
       loading.dismiss();
-        console.log(res)
+        console.log(res, 'in res')
         this.users = res;
 
         
@@ -69,8 +71,18 @@ export class MyshiftsPage {
       
       (err) =>{
         
-      alert("failed loading json data");
+      this.presentAlert();
+      loading.dismiss();
       });
+    }
+
+    presentAlert() {
+      let alert = this.alertCtrl.create({
+        title: 'Hi',
+        subTitle: 'Currently you have no shifts scheduled:)',
+        buttons: ['Dismiss']
+      });
+      alert.present();
     }
 
 

@@ -76,7 +76,7 @@ export class MyApp {
     firebase.auth().onAuthStateChanged(user=> {
         if(user){
           this.isAuthenticated = true;
-          this.rootPage = LoginpagePage;
+          this.rootPage = TabsPage;
         }else{
           this.isAuthenticated= false;
           this.rootPage = LoginpagePage;

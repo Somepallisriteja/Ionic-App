@@ -33,7 +33,7 @@ onSignup(form: NgForm){
   });
   loading.present();
   
-  this.authService.signup(form.value.email, form.value.password, form.value.displayName)
+  this.authService.signup(form.value.email, form.value.password)
   .then(data => {
     loading.dismiss();
   })
