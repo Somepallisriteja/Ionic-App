@@ -11,6 +11,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { AuthService } from '../services/auth';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { HomePage } from '../pages/home/home';
+//import { AuthProvider } from '@firebase/auth-types';
+import { AuthProvider } from '../providers/auth/auth';
 
 
 
@@ -23,7 +25,7 @@ import { HomePage } from '../pages/home/home';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = LoginpagePage;
+  rootPage:any = null;
   MyshiftsPage = MyshiftsPage;
   signinPage= LoginpagePage;
   tabsPage = TabsPage;
@@ -37,7 +39,8 @@ export class MyApp {
      splashScreen: SplashScreen, 
      private menuCtrl: MenuController,
      private authService: AuthService,
-     private push: Push
+     private push: Push,
+     auth: AuthProvider
     ) {
 
    firebase.initializeApp({
@@ -51,6 +54,19 @@ export class MyApp {
       }); 
 
       platform.ready().then(() => {
+
+        auth.getPresentUser()
+        .then(user => {
+          if(user){
+            this.rootPage = TabsPage
+          }else {
+            this.rootPage = LoginpagePage
+          }
+
+          statusBar.styleDefault();
+          splashScreen.hide();
+        })
+        
 
         /*  // Get a FCM token
         fcm.getToken()
@@ -73,7 +89,7 @@ export class MyApp {
 
    
   
-    firebase.auth().onAuthStateChanged(user=> {
+   /* firebase.auth().onAuthStateChanged(user=> {
         if(user){
           this.isAuthenticated = true;
           this.rootPage = TabsPage;
@@ -126,12 +142,12 @@ export class MyApp {
     this.authService.logout();
     this.menuCtrl.close();
     this.nav.setRoot(LoginpagePage);
-  }
+  }   */
  
 
 }
 
-
+}
 
 
 

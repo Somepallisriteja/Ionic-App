@@ -26,6 +26,7 @@ import { HttpModule } from '@angular/http';
 import { NetworkEngineProvider } from '../providers/network-engine/network-engine';
 import { HttpClientModule } from '@angular/common/http';
 import { Firebase } from '@ionic-native/firebase';
+import { Facebook } from '@ionic-native/facebook';
 import { Push } from '@ionic-native/push';
 import { AngularFirestoreModule} from 'angularfire2/firestore';
 
@@ -34,6 +35,8 @@ import { AngularFireStorageModule} from 'angularfire2/storage';
 import { AngularFireAuthModule} from 'angularfire2/auth'; 
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { HomePage } from '../pages/home/home';
+import { AuthProvider } from '../providers/auth/auth';
+import { FacebookLoginComponent } from '../components/facebook-login/facebook-login';
 
 
 var config = {
@@ -67,7 +70,9 @@ var config = {
     ClosedshiftsPage,
     DetailsPage,
     MyshiftsPage,
-    HomePage
+    HomePage,
+    FacebookLoginComponent
+    
     
   ],
   imports: [
@@ -104,6 +109,7 @@ var config = {
     DetailsPage,
     MyshiftsPage,
     HomePage
+    
   ],
   providers: [
     StatusBar,
@@ -114,7 +120,10 @@ var config = {
     ShiftsService,
     SignspinDataProvider,
     NetworkEngineProvider,
-    Firebase
+    Firebase,
+    Facebook,
+    AuthProvider
+    
     /*FcmProvider */
   
   ]
