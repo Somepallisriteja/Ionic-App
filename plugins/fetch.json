@@ -108,5 +108,16 @@
     "variables": {
       "SENDER_ID": "483860303310"
     }
+  },
+  "cordova-plugin-facebook4": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-facebook4"
+    },
+    "is_top_level": true,
+    "variables": {
+      "APP_ID": "2049521611972680",
+      "APP_NAME": "IonicApp"
+    }
   }
 }

@@ -8,6 +8,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {  Headers, RequestOptions } from '@angular/http';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { FCM } from '@ionic-native/fcm';
 
 
 
@@ -28,13 +29,19 @@ export class OpenshiftsPage {
     private actionSheetController: ActionSheetController,
     private alertCtrl: AlertController,
     private toastCtrl: ToastController,
-    private afAuth: AngularFireAuth) { }
+    private afAuth: AngularFireAuth,
+    private fcm: FCM) { }
 
   ionViewWillEnter() {
     this.openShifts = this.shiftService.getShifts();
     this.getCurrentUser();
     
+    
   }
+
+
+  
+
 
   getCurrentUser() {
     this.afAuth.authState.subscribe(data => {

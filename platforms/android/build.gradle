@@ -259,6 +259,7 @@ dependencies {
     compile "com.google.firebase:firebase-messaging:12.0.1"
     compile "com.android.support:support-v13:26.+"
     compile "me.leolin:ShortcutBadger:1.1.17@aar"
+    compile "com.facebook.android:facebook-android-sdk:4.+"
     // SUB-PROJECT DEPENDENCIES END
 }
 

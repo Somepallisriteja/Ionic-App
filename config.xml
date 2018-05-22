@@ -107,4 +107,9 @@
     <allow-navigation href="http://192.168.178.113:8101" />
     <allow-navigation href="http://192.168.100.62:8101" />
     <allow-navigation href="http://192.168.100.62:8100" />
+    <plugin name="cordova-plugin-facebook4" spec="^2.1.0">
+        <variable name="APP_ID" value="2049521611972680" />
+        <variable name="APP_NAME" value="IonicApp" />
+        <variable name="ANDROID_SDK_VERSION" value="4.+" />
+    </plugin>
 </widget>
