@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { AuthProvider } from '../../providers/auth/auth';
+import { AuthProviders } from '../../providers/auth/auth';
 import { NavController } from 'ionic-angular';
-import { TabsPage } from '../../pages/tabs/tabs';
+//import { TabsPage } from '../../pages/tabs/tabs';
+import { ProfilePage } from '../../pages/profile/profile';
 
 
 @Component({
@@ -12,14 +13,14 @@ export class FacebookLoginComponent {
 
   
 
-  constructor( public auth: AuthProvider,
+  constructor( public auth: AuthProviders,
                public navCtrl: NavController) {
    
   }
 
   async login(){
     await this.auth.facebookLogin();
-    await this.navCtrl.setRoot(TabsPage)
+    await this.navCtrl.setRoot(ProfilePage)
   }
 
 }

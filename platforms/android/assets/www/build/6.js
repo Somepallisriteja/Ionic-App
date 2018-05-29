@@ -1,14 +1,14 @@
 webpackJsonp([6],{
 
-/***/ 732:
+/***/ 790:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ClosedshiftsPageModule", function() { return ClosedshiftsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ComingshiftsPageModule", function() { return ComingshiftsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__closedshifts__ = __webpack_require__(231);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__comingshifts__ = __webpack_require__(249);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ClosedshiftsPageModule = (function () {
-    function ClosedshiftsPageModule() {
+var ComingshiftsPageModule = (function () {
+    function ComingshiftsPageModule() {
     }
-    ClosedshiftsPageModule = __decorate([
+    ComingshiftsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__closedshifts__["a" /* ClosedshiftsPage */],
+                __WEBPACK_IMPORTED_MODULE_2__comingshifts__["a" /* ComingshiftsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__closedshifts__["a" /* ClosedshiftsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__comingshifts__["a" /* ComingshiftsPage */]),
             ],
         })
-    ], ClosedshiftsPageModule);
-    return ClosedshiftsPageModule;
+    ], ComingshiftsPageModule);
+    return ComingshiftsPageModule;
 }());
 
-//# sourceMappingURL=closedshifts.module.js.map
+//# sourceMappingURL=comingshifts.module.js.map
 
 /***/ })
 

@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { FacebookLoginComponent } from './facebook-login/facebook-login';
+import { FacebookLogoutComponent } from './facebook-logout/facebook-logout';
 @NgModule({
-	declarations: [FacebookLoginComponent],
+	declarations: [FacebookLoginComponent,
+    FacebookLogoutComponent],
 	imports: [],
-	exports: [FacebookLoginComponent]
+	exports: [FacebookLoginComponent,
+    FacebookLogoutComponent] 
 })
 export class ComponentsModule {}

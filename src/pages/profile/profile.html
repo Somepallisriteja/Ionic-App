@@ -18,9 +18,29 @@
 <!--<p>Username: {{(profileData | async)?.username}}</p>
 <p>Firstname: {{(profileData | async)?.firstname}}</p>
 <p>Lastname: {{(profileData | async)?.lastname}}</p>  -->
+<p>Username: {{(profileData | async)?.username}}</p>
+ <p>Firstname: {{(profileData | async)?.firstname}}</p>
+<p>Lastname: {{(profileData | async)?.lastname}}</p>
+
 <h5> Hi {{userEmail}} </h5>
 <h5>Welcome to SignSpin Application</h5>
 <p>for more information <a href="http://www.signspin.de/">Click here</a></p>
+
+
+
+
+  <!--<ng-container *ngIf="auth.user | async as user">
+
+  <img [src]="user.photoURL" >
+  <h2>{{user.displayName}}</h2>
+  <button ion-button small (click)="openEditPage()">
+    Edit Profile 
+  </button>
+
+
+
+
+</ng-container> -->
 
 
 

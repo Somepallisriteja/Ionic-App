@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-import { NavController, LoadingController, ActionSheetController, AlertController, ToastController } from 'ionic-angular';
-import { EditOpenshiftPage } from '../edit-openshift/edit-openshift';
+import {  LoadingController, ActionSheetController, AlertController} from 'ionic-angular';
+//import { EditOpenshiftPage } from '../edit-openshift/edit-openshift';
 import { shift } from '../../models/shift';
 import { ShiftsService } from '../../services/shifts';
-import { OpenShiftPage } from '../open-shift/open-shift';
+//import { OpenShiftPage } from '../open-shift/open-shift';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 import {  Headers, RequestOptions } from '@angular/http';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { FCM } from '@ionic-native/fcm';
+
 
 
 
@@ -22,15 +22,16 @@ export class OpenshiftsPage {
   message: any;
   userEmail: any;
 
-  constructor(private navCtrl: NavController,
+  constructor(
+    //private navCtrl: NavController,
     private shiftService: ShiftsService,
     public http: Http,
     private loadingCtrl: LoadingController,
     private actionSheetController: ActionSheetController,
     private alertCtrl: AlertController,
-    private toastCtrl: ToastController,
+    //private toastCtrl: ToastController,
     private afAuth: AngularFireAuth,
-    private fcm: FCM) { }
+    ) { }
 
   ionViewWillEnter() {
     this.openShifts = this.shiftService.getShifts();
@@ -181,7 +182,7 @@ this.createAlert(user).present();
             
             console.log('in add',data.name, user);
             let postParams = user;
-            let email= this.userEmail;
+            //let email= this.userEmail;
             postParams.email = this.userEmail;
             postParams.message = data.name;
             postParams.timeStamp = new Date().toLocaleString();

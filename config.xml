@@ -112,4 +112,7 @@
         <variable name="APP_NAME" value="IonicApp" />
         <variable name="ANDROID_SDK_VERSION" value="4.+" />
     </plugin>
+    <allow-navigation href="http://141.44.219.217:8100" />
+    <allow-navigation href="http://141.44.219.24:8100" />
+    <allow-navigation href="http://141.44.219.40:8100" />
 </widget>

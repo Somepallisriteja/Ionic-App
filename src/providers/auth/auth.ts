@@ -6,15 +6,18 @@ import * as firebase from 'firebase/app';
 
 
 import { Observable} from 'rxjs/Observable';
-import { switchMap, take} from 'rxjs/operators';
+import { switchMap, take, map} from 'rxjs/operators';
 
 import {Facebook} from '@ionic-native/facebook';
 import { Platform } from 'ionic-angular';
-import { EmailAuthProvider } from '@firebase/auth-types';
+//import 'rxjs/add/operator/map';
+
+//import { EmailAuthProvider } from '@firebase/auth-types';
+
 
 
 @Injectable()
-export class AuthProvider {
+export class AuthProviders {
 
   user: Observable<any>;
 
@@ -45,10 +48,19 @@ export class AuthProvider {
 
   //Current user as promise. Useful for one off operations
 
-  getPresentUser(): Promise<any> {
+  /* getPresentUser(): Promise<any> {
     return this.user.pipe(take(1)).toPromise()
-  }
+   return this.user.pipe(
+      take(1),
+      map(user => !!user)
+    )
+    .toPromise()
+    
+  }*/
 
+
+
+ 
 async facebookLogin(){
   if (this.platform.is('cordova')){
     return await this.nativeFacebookLogin();
@@ -95,6 +107,24 @@ async webFacebookLogin(): Promise<void> {
   
 }
 
+///Helpers
+
+async logout(): Promise<any> {
+  return this.afAuth.auth.signOut();
+}
+ 
+
+///Current user as boolean promise. Useful for route guards
+
+getPresentUser(): Promise<any> {
+ 
+  return this.user.pipe(
+    take(1),
+    map(user => !!user)
+  )
+  .toPromise()
+  
+}
 
 
 

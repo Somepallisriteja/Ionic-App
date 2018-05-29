@@ -33,15 +33,17 @@
 
   <ion-card *ngFor= "let user of users; let i = index">
         <ion-card-title text-center>
-          Spinning Offer
+          {{user.LocationName}}
         </ion-card-title>
         <ion-card-header text-left>
             <p> Date:    {{user.Datum }}</p>
-            <p>Kunde: {{ user.Kunde}}</p>
+            <p>Kunde: {{ user.LocationName}}</p>
             <p>Address:{{ user.ServiceAddress}}</p>
     
             <p>Start:   {{user.SchStart}}</p>
             <p>End:   {{user.SchEnd}}</p>
+            <p>Kontakt:   {{user.Kontakt}}</p>
+            <p>Drive:   <a target="_blank" href="{{user.Drive}}">{{user.Drive}}</a></p>
             
            
         </ion-card-header>

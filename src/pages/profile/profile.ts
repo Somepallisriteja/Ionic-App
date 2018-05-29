@@ -6,11 +6,14 @@ import { NetworkEngineProvider } from '../../providers/network-engine/network-en
 
 import { AngularFireAuth } from 'angularfire2/auth';
 
-import { AngularFireList, AngularFireObject} from 'angularfire2/database';
-import { Profile } from '../../models/profile';
-import { AngularFireDatabase} from 'angularfire2/database';
-import {FirebaseObjectObservable} from 'angularfire2/database-deprecated';
+//import { AngularFireList, AngularFireObject} from 'angularfire2/database';
+//import { Profile } from '../../models/profile';
+//import { AngularFireDatabase} from 'angularfire2/database';
+//import { AngularFireList} from 'angularfire2/database';
 
+//import { AuthProviders } from '../../providers/auth/auth';
+//import { EditProfilePage } from '../edit-profile/edit-profile';
+//import { Observable } from 'rxjs/Observable';
 
 
 
@@ -35,10 +38,17 @@ declare let FCMPlugin;  */
 export class ProfilePage {
 
 
-profileData: FirebaseObjectObservable<Profile>
+ //profileData: FirebaseListObservable<Profile>
+ //profileData: AngularFireList<Profile>
+
+ //itemsRef: AngularFireList<Profile>;
+ //profileData: Observable<Profile[]>;
  userEmail: any;
  displayname: any;
  password: any;
+ 
+
+ 
 
 
  /*firestore =  firebase.database().ref('/pushtokens');
@@ -48,22 +58,46 @@ profileData: FirebaseObjectObservable<Profile>
     public http: Http,
     public networkprovider: NetworkEngineProvider,
     private afAuth: AngularFireAuth,
-    private afDatabase: AngularFireDatabase,
-    private toast: ToastController
-   /* private platform: Platform
-    public afd: AngularFireDatabase*/
-  ) {}
+   // private afDatabase: AngularFireDatabase,
+    private toast: ToastController,
+    //public auth: AuthProviders
+   /* private platform: Platform*/
+  ) {
+    //afDatabase.list<Profile>('items').valueChanges().subscribe(console.log);
+   
+    
+  }
 
+
+  /*ionViewCanEnter(){
+    return this.auth.getPresentUser();
+  } */
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ProfilePage');
+    this.getCurrentUser();
+   
+  }
  
 ionViewWillLoad(){
  this.getCurrentUser();
+ 
+
+ 
   this.afAuth.authState.take(1).subscribe(data=> {
+
+    console.log('A informatica', data );
     if(data && data.email && data.uid){
       this.toast.create({
-        message: `Welcome to SignSpin Application`,
+        message: `Welcome to SignSpin Application, ${data.email}`,
         duration: 3000
       }).present();
-      /*this.profileData = this.afDatabase.object(`Profile/${data.uid}`).valueChanges(); */
+      //this.itemsRef = this.afDatabase.list(`Profile/${data.uid}`);
+      //this.profileData = this.itemsRef.valueChanges();
+      //this.profileData.subscribe(res=> console.log(res));
+      //this.profileData = this.afDatabase.object(`Profile/${data.uid}`).valueChanges();
+      
+      
     }
   })
 }
@@ -71,17 +105,19 @@ getCurrentUser() {
   this.afAuth.authState.subscribe(data => {
     console.log('A informacao de data ' , data);
     this.userEmail = data.email;
-    this.displayname = data.displayName;
+    
    
-    console.log(this.displayname);
+   
   });
-}
+}  
 
 
 
 
 
-
+  /*openEditPage(){
+  this.navCtrl.push('EditProfilePage');
+ }*/
 
 
 

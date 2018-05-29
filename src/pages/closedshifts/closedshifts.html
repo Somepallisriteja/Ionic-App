@@ -9,12 +9,12 @@
 
 
 <ion-content padding>
-  <button ion-button block (click)="onloadJson()">Click me for open shifts</button>
+  <button ion-button block (click)="onloadJson()">Click me for Closed shifts</button>
 
 
   <ion-card *ngFor= "let user of users; let i = index">
     <ion-card-title text-center>
-      Spinning Offer
+      Closed Shifts
     </ion-card-title>
     <ion-card-header text-left>
         <p>Date:    {{user.Datum}}</p>

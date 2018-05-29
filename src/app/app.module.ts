@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core'; //Component
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -26,33 +26,36 @@ import { HttpModule } from '@angular/http';
 import { NetworkEngineProvider } from '../providers/network-engine/network-engine';
 import { HttpClientModule } from '@angular/common/http';
 import { Firebase } from '@ionic-native/firebase';
-import { Facebook } from '@ionic-native/facebook';
+//import { Facebook } from '@ionic-native/facebook';
 import { Push } from '@ionic-native/push';
 import { AngularFirestoreModule} from 'angularfire2/firestore';
-
 import { AngularFireModule} from 'angularfire2';
-import { AngularFireStorageModule} from 'angularfire2/storage';
 import { AngularFireAuthModule} from 'angularfire2/auth'; 
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { HomePage } from '../pages/home/home';
-import { AuthProvider } from '../providers/auth/auth';
-import { FacebookLoginComponent } from '../components/facebook-login/facebook-login';
+//import {  AuthProviders } from '../providers/auth/auth';
+//import { FacebookLoginComponent } from '../components/facebook-login/facebook-login';
+//import { FacebookLogoutComponent } from '../components/facebook-logout/facebook-logout';
+//import { EditProfilePageModule } from '../pages/edit-profile/edit-profile.module';
+//import { ProfilePageModule } from '../pages/profile/profile.module';
+//import { ComponentsModule } from '../components/components.module';
 
 
-var config = {
+  var config = {
   apiKey: "AIzaSyAEITsjmRjiUxpzj25m4rZ8VtT_bXzMapM",
   authDomain: "myproject-2c6c2.firebaseapp.com",
   databaseURL: "https://myproject-2c6c2.firebaseio.com",
   projectId: "myproject-2c6c2",
   storageBucket: "myproject-2c6c2.appspot.com",
   messagingSenderId: "468750777039"
-};
+};  
 
 
 
 
 
 @NgModule({
+  
   declarations: [
     MyApp,
     ProfilePage,
@@ -70,9 +73,10 @@ var config = {
     ClosedshiftsPage,
     DetailsPage,
     MyshiftsPage,
-    HomePage,
-    FacebookLoginComponent
+    HomePage
     
+   
+   
     
   ],
   imports: [
@@ -82,9 +86,13 @@ var config = {
     HttpClientModule,
     AngularFireModule.initializeApp(config),
     AngularFirestoreModule,
-    AngularFireStorageModule,
     AngularFireAuthModule,
     AngularFireDatabaseModule
+    //EditProfilePageModule,
+    //ProfilePageModule,
+    //ComponentsModule
+   
+    
 
     
     
@@ -109,6 +117,8 @@ var config = {
     DetailsPage,
     MyshiftsPage,
     HomePage
+ 
+    
     
   ],
   providers: [
@@ -121,10 +131,12 @@ var config = {
     SignspinDataProvider,
     NetworkEngineProvider,
     Firebase,
-    Facebook,
-    AuthProvider
+   
+   
+    //Facebook,
+    //AuthProviders
     
-    /*FcmProvider */
+    //FcmProvider 
   
   ]
 })

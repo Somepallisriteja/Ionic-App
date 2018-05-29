@@ -56,7 +56,7 @@ export class MyshiftsPage {
       loading.present();
       console.log('in loadjson',this.userEmail);
       //let email = "sritejamahadevan@gmail.com";
-       let url = `https://sheetsu.com/apis/v1.0su/0ba4069455bb/sheets/Users/search?email=${this.userEmail}`
+       let url = `https://sheetsu.com/apis/v1.0su/0ba4069455bb/sheets/Planed/search?email=${this.userEmail}`
       // search?Kunde=JOKEEvents-Berlin-DS-SS
       // search?Kunde=JOKEEvents-Berlin-DS-SS
       this.http.get(url)
@@ -79,7 +79,7 @@ export class MyshiftsPage {
     presentAlert() {
       let alert = this.alertCtrl.create({
         title: 'Hi',
-        subTitle: 'Currently you have no shifts scheduled:)',
+        subTitle: 'Currently you have no new shifts scheduled:)',
         buttons: ['Dismiss']
       });
       alert.present();

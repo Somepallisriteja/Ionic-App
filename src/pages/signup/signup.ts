@@ -15,26 +15,28 @@ export class SignupPage {
   constructor(private authService: AuthService,
               private loadingCtrl: LoadingController,
               private alertCtrl: AlertController,
-              private http: Http){}
+              private http: Http
+            ){}
 onSignup(form: NgForm){
+  ///Posting signup page data to google sheets
   
-  var headers = new Headers();
-     headers.append("Accept", 'application/json');
-      headers.append('Content-Type', 'application/json' );
-     let options = new RequestOptions({ headers: headers });
-     this.http.post("https://sheetsu.com/apis/v1.0su/0ba4069455bb/sheets/Users", JSON.stringify(form.value), options)
-     .subscribe(data => {
-       console.log(data);
-     })
      
      const loading = this.loadingCtrl.create({
     content: 'Signing you up'
 
   });
-  loading.present();
+  loading.present();  
   
-  this.authService.signup(form.value.email, form.value.password)
+  this.authService.signup(form.value.email, form.value.password, )
   .then(data => {
+    var headers = new Headers();
+    headers.append("Accept", 'application/json');
+     headers.append('Content-Type', 'application/json' );
+    let options = new RequestOptions({ headers: headers });
+    this.http.post("https://sheetsu.com/apis/v1.0su/0ba4069455bb/sheets/Users", JSON.stringify(form.value), options)
+    .subscribe(data => {
+      console.log(data);
+    })
     loading.dismiss();
   })
   .catch(error=> {
@@ -46,6 +48,8 @@ onSignup(form: NgForm){
     });
     alert.present();
   });
+
+ 
 }
 
 }

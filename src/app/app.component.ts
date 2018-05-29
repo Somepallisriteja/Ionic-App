@@ -12,7 +12,9 @@ import { AuthService } from '../services/auth';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { HomePage } from '../pages/home/home';
 //import { AuthProvider } from '@firebase/auth-types';
-import { AuthProvider } from '../providers/auth/auth';
+//import { AuthProviders } from '../providers/auth/auth';
+//import { ProfilePage } from '../pages/profile/profile';
+
 
 
 
@@ -25,11 +27,12 @@ import { AuthProvider } from '../providers/auth/auth';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:any = null;
+  rootPage:any = LoginpagePage;
   MyshiftsPage = MyshiftsPage;
   signinPage= LoginpagePage;
   tabsPage = TabsPage;
   isAuthenticated = false;
+  homePage = HomePage;
   
 
   @ViewChild('nav') nav : NavController
@@ -40,10 +43,10 @@ export class MyApp {
      private menuCtrl: MenuController,
      private authService: AuthService,
      private push: Push,
-     auth: AuthProvider
+     //auth: AuthProviders
     ) {
 
-   firebase.initializeApp({
+    firebase.initializeApp({
     apiKey: "AIzaSyAEITsjmRjiUxpzj25m4rZ8VtT_bXzMapM",
     authDomain: "myproject-2c6c2.firebaseapp.com",
     databaseURL: "https://myproject-2c6c2.firebaseio.com",
@@ -51,22 +54,22 @@ export class MyApp {
     storageBucket: "",
     messagingSenderId: "468750777039"
         
-      }); 
+      });  
 
       platform.ready().then(() => {
 
-        auth.getPresentUser()
+        /* auth.getPresentUser()
         .then(user => {
           if(user){
-            this.rootPage = TabsPage
+            this.rootPage = ProfilePage
           }else {
             this.rootPage = LoginpagePage
           }
 
           statusBar.styleDefault();
-          splashScreen.hide();
+          splashScreen.hide(); 
         })
-        
+        */
 
         /*  // Get a FCM token
         fcm.getToken()
@@ -89,10 +92,10 @@ export class MyApp {
 
    
   
-   /* firebase.auth().onAuthStateChanged(user=> {
+   firebase.auth().onAuthStateChanged(user=> {
         if(user){
           this.isAuthenticated = true;
-          this.rootPage = TabsPage;
+          this.rootPage = HomePage;
         }else{
           this.isAuthenticated= false;
           this.rootPage = LoginpagePage;
@@ -103,10 +106,10 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
-      this.pushSetup();
+      //this.pushSetup();
     });
   }
-  pushSetup(){
+  /*pushSetup(){
     const options: PushOptions = {
       android: {
         senderID: '483860303310',
@@ -133,21 +136,24 @@ export class MyApp {
    pushObject.on('registration').subscribe((registration: any) => console.log('Device registered', registration));
    
    pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
-  }
+  }    */
+
+
   onLoad(page: any){
    this.nav.setRoot(page);
    this.menuCtrl.close();
   }
   onLogout(){
+    
     this.authService.logout();
     this.menuCtrl.close();
     this.nav.setRoot(LoginpagePage);
-  }   */
+  }   
  
 
 }
 
-}
+
 
 
 
