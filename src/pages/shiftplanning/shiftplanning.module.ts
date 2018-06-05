@@ -4,10 +4,10 @@ import { ShiftplanningPage } from './shiftplanning';
 
 @NgModule({
   declarations: [
-    ShiftplanningPage,
+   // ShiftplanningPage,
   ],
   imports: [
-    IonicPageModule.forChild(ShiftplanningPage),
+    //IonicPageModule.forChild(ShiftplanningPage),
   ],
 })
 export class ShiftplanningPageModule {}

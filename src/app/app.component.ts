@@ -9,7 +9,7 @@ import { MyshiftsPage } from '../pages/myshifts/myshifts';
 import firebase from 'firebase';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AuthService } from '../services/auth';
-import { Push, PushObject, PushOptions } from '@ionic-native/push';
+//import { Push,  PushOptions } from '@ionic-native/push';
 import { HomePage } from '../pages/home/home';
 //import { AuthProvider } from '@firebase/auth-types';
 //import { AuthProviders } from '../providers/auth/auth';
@@ -42,7 +42,7 @@ export class MyApp {
      splashScreen: SplashScreen, 
      private menuCtrl: MenuController,
      private authService: AuthService,
-     private push: Push,
+     //private push: Push,
      //auth: AuthProviders
     ) {
 

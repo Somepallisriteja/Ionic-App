@@ -4,10 +4,10 @@ import { OpenShiftPage } from './open-shift';
 
 @NgModule({
   declarations: [
-    OpenShiftPage,
+    //OpenShiftPage,
   ],
   imports: [
-    IonicPageModule.forChild(OpenShiftPage),
+   // IonicPageModule.forChild(OpenShiftPage),
   ],
 })
 export class OpenShiftPageModule {}

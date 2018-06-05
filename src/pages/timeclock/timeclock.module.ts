@@ -4,10 +4,10 @@ import { TimeclockPage } from './timeclock';
 
 @NgModule({
   declarations: [
-    TimeclockPage,
+   // TimeclockPage,
   ],
   imports: [
-    IonicPageModule.forChild(TimeclockPage),
+   // IonicPageModule.forChild(TimeclockPage),
   ],
 })
 export class TimeclockPageModule {}

@@ -4,10 +4,10 @@ import { EditOpenshiftPage } from './edit-openshift';
 
 @NgModule({
   declarations: [
-    EditOpenshiftPage,
+   // EditOpenshiftPage,
   ],
   imports: [
-    IonicPageModule.forChild(EditOpenshiftPage),
+   // IonicPageModule.forChild(EditOpenshiftPage),
   ],
 })
 export class EditOpenshiftPageModule {}

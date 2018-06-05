@@ -8,7 +8,7 @@ import { MyApp } from './app.component';
 import { ProfilePage } from '../pages/profile/profile';
 import { ShiftplanningPage } from '../pages/shiftplanning/shiftplanning';
 import { TimeclockPage } from '../pages/timeclock/timeclock';
-import { SettingsPage } from '../pages/settings/settings';
+//import { SettingsPage } from '../pages/settings/settings';
 import { TabsPage } from '../pages/tabs/tabs';
 import { SignupPage } from '../pages/signup/signup';
 import { ComingshiftsPage } from '../pages/comingshifts/comingshifts';
@@ -61,7 +61,7 @@ import { HomePage } from '../pages/home/home';
     ProfilePage,
     ShiftplanningPage,
     TimeclockPage,
-    SettingsPage,
+    //SettingsPage,
     TabsPage,
     SignupPage,
     OpenshiftsPage,
@@ -104,7 +104,7 @@ import { HomePage } from '../pages/home/home';
     ProfilePage,
     ShiftplanningPage,
     TimeclockPage,
-    SettingsPage,
+    //SettingsPage,
     TabsPage,
     SignupPage,
     ComingshiftsPage,

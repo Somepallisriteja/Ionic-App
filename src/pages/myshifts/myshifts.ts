@@ -56,6 +56,7 @@ export class MyshiftsPage {
       loading.present();
       console.log('in loadjson',this.userEmail);
       //let email = "sritejamahadevan@gmail.com";
+      
        let url = `https://sheetsu.com/apis/v1.0su/0ba4069455bb/sheets/Planed/search?email=${this.userEmail}`
       // search?Kunde=JOKEEvents-Berlin-DS-SS
       // search?Kunde=JOKEEvents-Berlin-DS-SS

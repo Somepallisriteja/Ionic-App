@@ -4,10 +4,10 @@ import { MyshiftsPage } from './myshifts';
 
 @NgModule({
   declarations: [
-    MyshiftsPage,
+   // MyshiftsPage,
   ],
   imports: [
-    IonicPageModule.forChild(MyshiftsPage),
+   // IonicPageModule.forChild(MyshiftsPage),
   ],
 })
 export class MyshiftsPageModule {}

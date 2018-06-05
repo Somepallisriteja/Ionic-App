@@ -43,7 +43,10 @@
             <p>Start:   {{user.SchStart}}</p>
             <p>End:   {{user.SchEnd}}</p>
             <p>Kontakt:   {{user.Kontakt}}</p>
-            <p>Drive:   <a target="_blank" href="{{user.Drive}}">{{user.Drive}}</a></p>
+            <p>Drive: <a href="{{user.Drive}}" onclick ="window.open( this.href, '_system', 'location=yes'); return false;">
+              
+              {{user.Drive}}</a></p> 
+           
             
            
         </ion-card-header>

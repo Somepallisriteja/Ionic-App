@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController  } from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import {  Headers, RequestOptions } from '@angular/http';
+
 
 
 
@@ -31,7 +31,7 @@ export class ClosedshiftsPage {
       });
       loading.present();
       
-      this.http.get("https://sheetsu.com/apis/v1.0su/0ba4069455bb/sheets/Closed")
+      this.http.get("https://sheetsu.com/apis/v1.0su/0ba4069455bb/sheets/New")
       .map(res => res.json())
       .subscribe( res=>{
       loading.dismiss();

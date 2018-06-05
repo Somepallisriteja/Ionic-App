@@ -4,10 +4,10 @@ import { ComingshiftsPage } from './comingshifts';
 
 @NgModule({
   declarations: [
-    ComingshiftsPage,
+    //ComingshiftsPage,
   ],
   imports: [
-    IonicPageModule.forChild(ComingshiftsPage),
+    //IonicPageModule.forChild(ComingshiftsPage),
   ],
 })
 export class ComingshiftsPageModule {}

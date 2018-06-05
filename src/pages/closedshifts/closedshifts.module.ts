@@ -3,11 +3,12 @@ import { IonicPageModule } from 'ionic-angular';
 import { ClosedshiftsPage } from './closedshifts';
 
 @NgModule({
-  declarations: [
-    ClosedshiftsPage,
-  ],
-  imports: [
-    IonicPageModule.forChild(ClosedshiftsPage),
-  ],
+
 })
 export class ClosedshiftsPageModule {}
+/*declarations: [
+  ClosedshiftsPage,
+],
+imports: [
+  IonicPageModule.forChild(ClosedshiftsPage),
+],*/

@@ -21,6 +21,10 @@
         <p>Location: {{ user.LocationName}}</p>
         <p>Street:   {{ user.ServiceAddress}}</p>
         <p>Employee:    {{user.EmployeeName}}</p>
+        
+        <p>Drive: <a href="{{user.drive}}" onclick ="window.open( this.href, '_system', 'location=yes'); return false;">
+              
+          {{user.drive}}</a></p> 
       
        
     </ion-card-header>
