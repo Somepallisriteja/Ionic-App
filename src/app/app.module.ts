@@ -33,6 +33,9 @@ import { AngularFireModule} from 'angularfire2';
 import { AngularFireAuthModule} from 'angularfire2/auth'; 
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { HomePage } from '../pages/home/home';
+//import { FcmProvider } from '../providers/fcm/fcm';
+import firebase from 'firebase';
+
 //import {  AuthProviders } from '../providers/auth/auth';
 //import { FacebookLoginComponent } from '../components/facebook-login/facebook-login';
 //import { FacebookLogoutComponent } from '../components/facebook-logout/facebook-logout';
@@ -41,7 +44,7 @@ import { HomePage } from '../pages/home/home';
 //import { ComponentsModule } from '../components/components.module';
 
 
-  var config = {
+var config = {
   apiKey: "AIzaSyAEITsjmRjiUxpzj25m4rZ8VtT_bXzMapM",
   authDomain: "myproject-2c6c2.firebaseapp.com",
   databaseURL: "https://myproject-2c6c2.firebaseio.com",
@@ -49,6 +52,7 @@ import { HomePage } from '../pages/home/home';
   storageBucket: "myproject-2c6c2.appspot.com",
   messagingSenderId: "468750777039"
 };  
+firebase.initializeApp(config);
 
 
 
@@ -81,7 +85,7 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {scrollAssist: false}),
     HttpModule,
     HttpClientModule,
     AngularFireModule.initializeApp(config),
@@ -91,6 +95,7 @@ import { HomePage } from '../pages/home/home';
     //EditProfilePageModule,
     //ProfilePageModule,
     //ComponentsModule
+    
    
     
 
@@ -131,7 +136,7 @@ import { HomePage } from '../pages/home/home';
     SignspinDataProvider,
     NetworkEngineProvider,
     Firebase,
-   
+
    
     //Facebook,
     //AuthProviders

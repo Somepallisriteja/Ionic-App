@@ -27,14 +27,16 @@
     </ion-card-header>
     <ion-card-content>
       <form #f= "ngForm" (ngSubmit)="onSignin(f)">
-      <ion-list >
-        <ion-item>
-          <ion-input type="text" name="email" placeholder="email" ngModel required></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-input type="password" placeholder="Password" name="password" ngModel required></ion-input>
+      <ion-list>
 
-        </ion-item>
+              <ion-item>
+                  <ion-input type="text" name="email" placeholder="email" ngModel required ></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input type="password" placeholder="Password" name="password" ngModel required></ion-input>
+        
+                </ion-item>
+        
        
 
 

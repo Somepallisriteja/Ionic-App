@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 
 
 import 'rxjs/add/operator/map';
@@ -9,6 +9,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase} from 'angularfire2/database';
 import { Profile } from '../../models/profile';
 import { TabsPage } from '../tabs/tabs';
+//import { FcmProvider } from '../../providers/fcm/fcm';
+import { tap } from 'rxjs/operators';
 
 
 
@@ -30,14 +32,32 @@ export class HomePage {
   firemsg = firebase.database().ref('/messages');  */
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    
+   //public fcm : FcmProvider,
     public networkprovider: NetworkEngineProvider,
     private afAuth: AngularFireAuth,
-    private afDatabase: AngularFireDatabase
+    private afDatabase: AngularFireDatabase,
+    public toastCtrl: ToastController
    /* private platform: Platform
     public afd: AngularFireDatabase*/
   ) {
- /* this.tokensetup().then((token) =>{
+
+
+    //Get a FCM token
+  /* this.fcm.getToken()
+  
+   this.fcm.listenToNotifications().pipe(
+
+    tap(msg =>{
+      const toast = this.toastCtrl.create({
+         message: msg.body,
+         duration: 3000
+
+      });
+       toast.present();
+    })
+   )
+   .subscribe()
+  this.tokensetup().then((token) =>{
     this.storetoken(token);
   }); 
   this.onNotification();

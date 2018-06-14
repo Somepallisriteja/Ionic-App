@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFirestore, AngularFirestoreDocument} from 'angularfire2/firestore';
 import * as firebase from 'firebase/app';
@@ -11,9 +12,7 @@ import { switchMap, take, map} from 'rxjs/operators';
 import {Facebook} from '@ionic-native/facebook';
 import { Platform } from 'ionic-angular';
 //import 'rxjs/add/operator/map';
-
 //import { EmailAuthProvider } from '@firebase/auth-types';
-
 
 
 @Injectable()
@@ -37,17 +36,18 @@ export class AuthProviders {
         if(user) {
             return this.afs.doc<any>(`users/${user.uid}`).valueChanges();
         } else {
-          return Observable.of(null);
+          
+          return null;
+          //return Observable.of(null);
         }
 
       })
 
-    )
+    ) 
   }
 
 
   //Current user as promise. Useful for one off operations
-
   /* getPresentUser(): Promise<any> {
     return this.user.pipe(take(1)).toPromise()
    return this.user.pipe(
@@ -108,14 +108,12 @@ async webFacebookLogin(): Promise<void> {
 }
 
 ///Helpers
-
 async logout(): Promise<any> {
   return this.afAuth.auth.signOut();
 }
  
 
 ///Current user as boolean promise. Useful for route guards
-
 getPresentUser(): Promise<any> {
  
   return this.user.pipe(

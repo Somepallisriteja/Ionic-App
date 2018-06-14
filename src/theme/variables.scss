@@ -34,17 +34,20 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #0f131a,
+  primary:    #802e54,
   secondary:  #32db64,
   danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222,
+  light:      #ffffff,
+  dark:       rgb(6, 5, 5),
   facebook:   #3b5998,
   background: #0f0e1a
 );
 
 
 // App iOS Variables
+
+
+
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
@@ -88,3 +91,19 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+
+
+//loading styling
+
+$loading-md-border-radius:10px;
+$loading-dots-border-radius: 10px;
+
+$loading-wp-border-radius:  10px;
+$loading-ios-spinner-ios-color : #802e54;
+//alert
+$alert-ios-message-text-color: black;
+$alert-ios-message-padding: 	0px 26px 31px;
+$alert-ios-message-font-size:	16px;
+$alert-md-message-font-size:	20px;
+$alert-ios-input-border-radius:	10px;

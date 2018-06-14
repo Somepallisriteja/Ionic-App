@@ -1,1 +1,34 @@
-webpackJsonp([1],{455:function(n,e,t){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r=t(0),u=(t(1),function(){return function(){}}());t.d(e,"MyshiftsPageModuleNgFactory",function(){return i});var i=r.W(u,[],function(n){return r._10([r._11(512,r.i,r.S,[[8,[]],[3,r.i],r.s]),r._11(512,u,u,[])])})}});
+webpackJsonp([1],{
+
+/***/ 527:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyshiftsPageModule", function() { return MyshiftsPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var MyshiftsPageModule = (function () {
+    function MyshiftsPageModule() {
+    }
+    MyshiftsPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [],
+            imports: [],
+        })
+    ], MyshiftsPageModule);
+    return MyshiftsPageModule;
+}());
+
+//# sourceMappingURL=myshifts.module.js.map
+
+/***/ })
+
+});
+//# sourceMappingURL=1.js.map

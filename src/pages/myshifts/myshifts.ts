@@ -41,7 +41,8 @@ export class MyshiftsPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyshiftsPage');
     this.getCurrentUser();
-   
+    this.onloadJson();
+      
   }
   onload(){
     this.navCtrl.push(TabsPage)

@@ -1,51 +1,71 @@
 
-<ion-header>
+  <ion-header>
 
-  <ion-navbar>
-      <ion-buttons end>
-        <button ion-button icon-only menuToggle>
-          <ion-icon name="menu"></ion-icon>
-        </button>
-      </ion-buttons>
-      <img src="http://oi68.tinypic.com/2eupsb5.jpg" height="30px" width="90px">
+    <ion-navbar>
+        <ion-buttons end>
+          <button ion-button icon-only menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </ion-buttons>
+        <img src="http://oi68.tinypic.com/2eupsb5.jpg" height="30px" width="90px">
 
-    <ion-title text-center>Profile</ion-title>
-  </ion-navbar>
+      <ion-title text-center>Profile</ion-title>
+    </ion-navbar>
 
-</ion-header>
-<ion-content padding>
-  
-<!--<p>Username: {{(profileData | async)?.username}}</p>
-<p>Firstname: {{(profileData | async)?.firstname}}</p>
-<p>Lastname: {{(profileData | async)?.lastname}}</p>  -->
-
-
-<h5> Hi {{userEmail}} </h5>
-<h5>Welcome to SignSpin Application</h5>
-
-<p>for more information<a href="#" onclick="window.open('http://www.signspin.de/', '_system', 'location=yes'); return false;">
-  Click here
-</a></p>
+  </ion-header>
+  <ion-content  class="Notifications">
+     
 
 
 
+     
 
-  <!--<ng-container *ngIf="auth.user | async as user">
+    <ion-card color= "light" >
+     
+      <ion-card-title text-center text-wrap>
+           Hi {{userEmail}}
+      </ion-card-title>
+    
+    
+    
+    
+    <ion-card-header text-center text-wrap>
 
-  <img [src]="user.photoURL" >
-  <h2>{{user.displayName}}</h2>
-  <button ion-button small (click)="openEditPage()">
-    Edit Profile 
-  </button>
+      
+      <h5>Welcome to SignSpin Application</h5>
+      
+      <p>for more information<a href="#" onclick="window.open('http://www.signspin.de/', '_system', 'location=yes'); return false;">
+        Click here
+      </a></p>  
+      
+        
+      
+    </ion-card-header>
+  </ion-card>
+    
 
 
 
 
-</ng-container> -->
 
 
 
-</ion-content>
+    <!--<ng-container *ngIf="auth.user | async as user">
+
+    <img [src]="user.photoURL" >
+    <h2>{{user.displayName}}</h2>
+    <button ion-button small (click)="openEditPage()">
+      Edit Profile 
+    </button>
+
+
+
+
+  </ng-container> -->
+
+
+
+  </ion-content>
 
 
 

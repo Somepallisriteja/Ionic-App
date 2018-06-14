@@ -7,7 +7,7 @@
         <ion-icon name="refresh"></ion-icon>
       </button>
      </ion-buttons>
-    <ion-title>Open Shifts</ion-title>
+    <ion-title text-center>Open Shifts</ion-title>
   </ion-navbar>
  
 </ion-header>
@@ -15,8 +15,8 @@
 
 
 
-<ion-content padding>
-  <button ion-button block (click)="onloadJson()">Click me for open shifts</button>
+<ion-content padding class="background">
+  
   <!--<ion-card *ngFor= "let openShift of openShifts; let i = index">
     <ion-card-title text-center>
       {{openShift.Title}}
@@ -40,19 +40,18 @@
   
   </ion-card>  -->
 
-  <ion-card *ngFor= "let user of users; let i = index">
+  <ion-card *ngFor= "let user of users; let i = index" text-wrap>
     <ion-card-title text-center>
-      Spinning Offer
+      <a>{{ user.Kunde}}</a>
     </ion-card-title>
-    <ion-card-header text-left>
+    <ion-card-header text-left text-wrap>
 
-        <p>   #{{user.ID}}</p>
-        <p> Date:    {{user.Datum }}</p>
-        <p>Kunde: {{ user.Kunde}}</p>
-        <p>Address:{{ user.ServiceAddress}}</p>
-
-        <p>Start:   {{user.SchStart}}</p>
-        <p>End:   {{user.SchEnd}}</p>
+        
+        <p><a>Date</a>: {{user.Datum }}</p>
+        <p><a>Kunde</a>: {{ user.Kunde}}</p>
+        <p><a>Address</a>: {{ user.ServiceAddress}}</p>
+        <p><a>Start</a>: {{user.SchStart}}</p>
+        <p><a>End</a>: {{user.SchEnd}}</p>
         
        
     </ion-card-header>

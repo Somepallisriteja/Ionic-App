@@ -33,6 +33,14 @@ export class OpenshiftsPage {
     private afAuth: AngularFireAuth,
     ) { }
 
+
+    ionViewDidLoad(){
+     console.log('I am teja' );
+     this.onloadJson();
+
+
+    }
+
   ionViewWillEnter() {
     this.openShifts = this.shiftService.getShifts();
     this.getCurrentUser();

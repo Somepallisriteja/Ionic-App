@@ -2,29 +2,36 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Closed shifts(Closed)</ion-title>
+    <ion-title text-center>Closed shifts</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="onloadJson()">
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+     </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <button ion-button block (click)="onloadJson()">Click me for Closed shifts</button>
+ 
 
 
-  <ion-card *ngFor= "let user of users; let i = index">
+  <ion-card *ngFor= "let user of users; let i = index" text-wrap>
     <ion-card-title text-center>
-      Closed Shifts
+      <a>{{user.LocationName}}</a>
     </ion-card-title>
-    <ion-card-header text-left>
-        <p>Date:    {{user.Datum}}</p>
-        <p>Location: {{ user.LocationName}}</p>
-        <p>Street:   {{ user.ServiceAddress}}</p>
-        <p>Employee:    {{user.EmployeeName}}</p>
+    <ion-card-header text-left text-wrap>
+        <p><a>Date</a>: {{user.Datum}}</p>
+        <p><a>Bonus</a>: {{ user.Bonus}}</p>
+        <p><a>Spesen/Kilometergeld</a>: {{user.Spesen}}</p>
+        <p><a>Gehalt</a>: {{user.Gehalt}}</p>
+        <p><a>SchStart</a>: {{user.SchStart}}</p>
+        <p><a>SchEnd</a>: {{user.SchEnd}}</p>
         
-        <p>Drive: <a href="{{user.drive}}" onclick ="window.open( this.href, '_system', 'location=yes'); return false;">
+        <!--<p>Drive: <a href="{{user.drive}}" onclick ="window.open( this.href, '_system', 'location=yes'); return false;">
               
-          {{user.drive}}</a></p> 
+          {{user.drive}}</a></p>  -->
       
        
     </ion-card-header>

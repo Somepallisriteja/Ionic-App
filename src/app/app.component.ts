@@ -10,7 +10,8 @@ import firebase from 'firebase';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AuthService } from '../services/auth';
 //import { Push,  PushOptions } from '@ionic-native/push';
-import { HomePage } from '../pages/home/home';
+
+import { ProfilePage } from '../pages/profile/profile';
 //import { AuthProvider } from '@firebase/auth-types';
 //import { AuthProviders } from '../providers/auth/auth';
 //import { ProfilePage } from '../pages/profile/profile';
@@ -32,7 +33,7 @@ export class MyApp {
   signinPage= LoginpagePage;
   tabsPage = TabsPage;
   isAuthenticated = false;
-  homePage = HomePage;
+  
   
 
   @ViewChild('nav') nav : NavController
@@ -46,6 +47,10 @@ export class MyApp {
      //auth: AuthProviders
     ) {
 
+    
+
+      platform.ready().then(() => {
+/* 
     firebase.initializeApp({
     apiKey: "AIzaSyAEITsjmRjiUxpzj25m4rZ8VtT_bXzMapM",
     authDomain: "myproject-2c6c2.firebaseapp.com",
@@ -54,11 +59,10 @@ export class MyApp {
     storageBucket: "",
     messagingSenderId: "468750777039"
         
-      });  
+      }); 
 
-      platform.ready().then(() => {
-
-        /* auth.getPresentUser()
+        
+        auth.getPresentUser()
         .then(user => {
           if(user){
             this.rootPage = ProfilePage
@@ -95,7 +99,7 @@ export class MyApp {
    firebase.auth().onAuthStateChanged(user=> {
         if(user){
           this.isAuthenticated = true;
-          this.rootPage = HomePage;
+          this.rootPage = TabsPage;
         }else{
           this.isAuthenticated= false;
           this.rootPage = LoginpagePage;

@@ -33,6 +33,7 @@ onSignup(form: NgForm){
     headers.append("Accept", 'application/json');
      headers.append('Content-Type', 'application/json' );
     let options = new RequestOptions({ headers: headers });
+
     this.http.post("https://sheetsu.com/apis/v1.0su/0ba4069455bb/sheets/Users", JSON.stringify(form.value), options)
     .subscribe(data => {
       console.log(data);

@@ -25,8 +25,11 @@ export class FcmProvider {
   
     if (this.platform.is('ios')) {
       token = await this.firebaseNative.getToken();
-      await this.firebaseNative.grantPermission();
+      const perm = await this.firebaseNative.grantPermission();
     } 
+    //Is not cordova   == web PWA
+
+    if(!this.platform.is('cordova'))
     
     return this.saveTokenToFirestore(token)
   }

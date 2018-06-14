@@ -6,9 +6,8 @@ import { NetworkEngineProvider } from '../../providers/network-engine/network-en
 
 import { AngularFireAuth } from 'angularfire2/auth';
 
-//import { AngularFireList, AngularFireObject} from 'angularfire2/database';
-//import { Profile } from '../../models/profile';
-//import { AngularFireDatabase} from 'angularfire2/database';
+
+
 //import { AngularFireList} from 'angularfire2/database';
 
 //import { AuthProviders } from '../../providers/auth/auth';
@@ -38,11 +37,7 @@ declare let FCMPlugin;  */
 export class ProfilePage {
 
 
- //profileData: FirebaseListObservable<Profile>
- //profileData: AngularFireList<Profile>
 
- //itemsRef: AngularFireList<Profile>;
- //profileData: Observable<Profile[]>;
  userEmail: any;
  displayname: any;
  password: any;
@@ -58,20 +53,18 @@ export class ProfilePage {
     public http: Http,
     public networkprovider: NetworkEngineProvider,
     private afAuth: AngularFireAuth,
-   // private afDatabase: AngularFireDatabase,
+
     private toast: ToastController,
     //public auth: AuthProviders
    /* private platform: Platform*/
   ) {
-    //afDatabase.list<Profile>('items').valueChanges().subscribe(console.log);
+   
    
     
   }
 
 
-  /*ionViewCanEnter(){
-    return this.auth.getPresentUser();
-  } */
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfilePage');
@@ -92,10 +85,7 @@ ionViewWillLoad(){
         message: `Welcome to SignSpin Application, ${data.email}`,
         duration: 3000
       }).present();
-      //this.itemsRef = this.afDatabase.list(`Profile/${data.uid}`);
-      //this.profileData = this.itemsRef.valueChanges();
-      //this.profileData.subscribe(res=> console.log(res));
-      //this.profileData = this.afDatabase.object(`Profile/${data.uid}`).valueChanges();
+      
       
       
     }
@@ -115,9 +105,7 @@ getCurrentUser() {
 
 
 
-  /*openEditPage(){
-  this.navCtrl.push('EditProfilePage');
- }*/
+ 
 
 
 
