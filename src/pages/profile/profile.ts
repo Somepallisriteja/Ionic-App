@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController} from 'ionic-angular';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { NetworkEngineProvider } from '../../providers/network-engine/network-engine';
+
 
 import { AngularFireAuth } from 'angularfire2/auth';
 
@@ -51,7 +51,7 @@ export class ProfilePage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public http: Http,
-    public networkprovider: NetworkEngineProvider,
+   
     private afAuth: AngularFireAuth,
 
     private toast: ToastController,
@@ -82,7 +82,7 @@ ionViewWillLoad(){
     console.log('A informatica', data );
     if(data && data.email && data.uid){
       this.toast.create({
-        message: `Welcome to SignSpin Application, ${data.email}`,
+        message: ` Willkommen in der SignSpin App!, ${data.email}`,
         duration: 3000
       }).present();
       

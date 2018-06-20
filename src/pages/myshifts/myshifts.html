@@ -3,13 +3,18 @@
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
+   <img src="http://oi68.tinypic.com/2eupsb5.jpg" height="30px" width="90px" style="display:inline-block">
 -->
 <ion-header>
 
   <ion-navbar>
-      <img src="http://oi68.tinypic.com/2eupsb5.jpg" height="30px" width="90px">
-      <ion-title text-center>MyShifts</ion-title>
-    <ion-buttons end>
+   
+        <img src="http://oi68.tinypic.com/2eupsb5.jpg" height="30px" width="90px" style="display:inline-block">
+
+   
+     
+      <ion-title text-center style="display:inline-block"><a>Meine Einsätze</a></ion-title>
+        <ion-buttons end>
         <button ion-button icon-only (click)="onloadJson()">
           <ion-icon name="refresh"></ion-icon>
         </button>
@@ -21,7 +26,9 @@
     
   </ion-navbar>
 
-</ion-header>
+</ion-header> 
+
+
 
 
 <ion-content padding class="background">

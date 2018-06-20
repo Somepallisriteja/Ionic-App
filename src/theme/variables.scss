@@ -34,7 +34,7 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #802e54,
+  primary:   black,
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #ffffff,
@@ -44,7 +44,7 @@ $colors: (
 );
 
 
-// App iOS Variables
+//    App iOS Variables
 
 
 
@@ -100,10 +100,17 @@ $loading-md-border-radius:10px;
 $loading-dots-border-radius: 10px;
 
 $loading-wp-border-radius:  10px;
-$loading-ios-spinner-ios-color : #802e54;
+$loading-ios-spinner-ios-color :#004284;
 //alert
 $alert-ios-message-text-color: black;
 $alert-ios-message-padding: 	0px 26px 31px;
 $alert-ios-message-font-size:	16px;
 $alert-md-message-font-size:	20px;
 $alert-ios-input-border-radius:	10px;
+$alert-ios-sub-title-text-color:#004284;
+
+
+//card
+$card-md-background-color: #C9DDE8;
+$card-ios-background-color: #C9DDE8;
+

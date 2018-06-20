@@ -1,6 +1,6 @@
 page-loginpage {
     .background{
-        background-color: rgb(28, 25, 28);
+        background-color:#004D79;
     }  
 
 .scroll-content{
@@ -13,7 +13,7 @@ page-loginpage {
 ion-card.card {
     box-shadow: none;
     border-radius: 5px;
-    background: rgba(0,0,0.5,0);
+    background: #004D79;
 }
 a, p,
 ion-card-header.card-header{
@@ -22,7 +22,7 @@ ion-card-header.card-header{
 .item{
     margin-bottom: 10px;
     border: medium none;
-    background: rgba(255,255,255,0.5);
+    background: #C9DDE8;
     border-radius: 5px;
 
 }
@@ -30,16 +30,16 @@ ion-card-header.card-header{
     border: medium none;
 }
 .text-input{
-    color: #fff;
+    color: black;
 }
 ::-webkit-input-placeholder{
-    color: white !important;
+    color: black !important;
 }
 ::-moz-placeholder{
-    color: white !important;
+    color: black !important;
 }
 :-ms-input-placeholder{
-    color: white !important;
+    color: black !important;
 }
 .icon{
     padding-right: 10px;

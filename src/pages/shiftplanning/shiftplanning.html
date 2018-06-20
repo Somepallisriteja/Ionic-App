@@ -6,44 +6,47 @@
             <ion-icon name="menu"></ion-icon>
           </button>
         </ion-buttons>
-        <img src="http://oi68.tinypic.com/2eupsb5.jpg" height="30px" width="90px">
+        <img src="http://oi68.tinypic.com/2eupsb5.jpg" height="30px" width="90px" style="display:inline-block">
   
-      <ion-title text-center>Shift Planning</ion-title>
+      <ion-title text-center style="display:inline-block">Einsätze</ion-title>
     </ion-navbar>
   </ion-header>
 
 
 <ion-content padding class="background">
-    <ion-list>
-        <ion-card color="light">
+  <ion-list>
+    
+        <ion-card>
             <ion-card-content>
-            <button color="light"
+            <button class="card"
             ion-item
             icon-left
            (click)="onload()"
           >
-            <ion-icon name="mail-open"></ion-icon><a>Open shifts</a>
+            <ion-icon name="mail-open"></ion-icon>Verfügbare Einsätze
            </button>
           </ion-card-content> 
         </ion-card>
+
+   
    
      
-        <ion-card color="light">
-            <ion-card-content>
-            <button color="light"
+        <ion-card>
+            <ion-card-content class="card">
+            <button class="card"
             ion-item
             icon-left
             (click)= "pageload()">
             <ion-icon name="mail"></ion-icon>
-            <a>Closed shifts</a></button>
+            Abgeschlossene Einsätze</button>
           </ion-card-content> 
         </ion-card>
            
         
       
         
-    </ion-list>
-
+    
+      </ion-list>
     
     
   

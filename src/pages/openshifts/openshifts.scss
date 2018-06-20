@@ -1,14 +1,19 @@
 page-openshifts {
     .background{
-        background-color: rgb(14, 13, 14);
+        background-color: #004D79;
+       
     }   
     ion-card {
-        border-top: 3px solid  #802e54;
-        border-bottom: 3px solid  #802e54;
-        border-right: 3px solid  #802e54;
-        border-left: 3px solid  #802e54;
-        border-radius: 5px;
+       
+        border-radius: 20px;
         
 
      }
+     .card{
+        border-radius: 18px;
+     }
+     .new{
+         background-color: black;
+     }
+     
 }

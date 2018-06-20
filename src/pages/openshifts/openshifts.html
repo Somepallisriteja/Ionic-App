@@ -7,7 +7,7 @@
         <ion-icon name="refresh"></ion-icon>
       </button>
      </ion-buttons>
-    <ion-title text-center>Open Shifts</ion-title>
+    <ion-title text-center ><a>Verfügbare Einsätze</a></ion-title>
   </ion-navbar>
  
 </ion-header>
@@ -41,7 +41,7 @@
   </ion-card>  -->
 
   <ion-card *ngFor= "let user of users; let i = index" text-wrap>
-    <ion-card-title text-center>
+    <ion-card-title text-center >
       <a>{{ user.Kunde}}</a>
     </ion-card-title>
     <ion-card-header text-left text-wrap>

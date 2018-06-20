@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
 import { SignupPage } from '../signup/signup';
 import { NgForm } from '@angular/forms';
-import { AuthService } from '../../services/auth'
-//import { FacebookLoginComponent } from '../../components/facebook-login/facebook-login';
+import { AuthService } from '../../services/auth';
 
 
 

@@ -51,7 +51,7 @@ export class MyshiftsPage {
 
     onloadJson(){
       const loading = this.loadingCtrl.create({
-        content: 'Loading your shifts'
+        content: 'Wird geladen'
     
       });
       loading.present();
@@ -80,9 +80,9 @@ export class MyshiftsPage {
 
     presentAlert() {
       let alert = this.alertCtrl.create({
-        title: 'Hi',
-        subTitle: 'Currently you have no new shifts scheduled:)',
-        buttons: ['Dismiss']
+        title: 'Du hast aktuell keine bevorstehenden Einsätze',
+        subTitle: 'Bewirb dich jetzt auf verfügbare Einsätze!',
+        buttons: ['Zurück'] 
       });
       alert.present();
     }

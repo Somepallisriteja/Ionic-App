@@ -1,7 +1,28 @@
 page-signup {
     .background{
-        background-color:rgb(19, 19, 32);
+        background-color:#004D79;
     }
-   
-    
+    .title.title-ios {
+        position: absolute;
+        display: inline-block;
+        left: 0;
+        top: 20;
+        padding-top: 2.5%;
+        height: 90%;
+        width: 100%;
+        text-align: center;
+    }
+    .text-input{
+        color: black;
+    }
+    ::-webkit-input-placeholder{
+        color: black !important;
+    }
+    ::-moz-placeholder{
+        color: black !important;
+    }
+    :-ms-input-placeholder{
+        color: black !important;
+    }
+ 
 }

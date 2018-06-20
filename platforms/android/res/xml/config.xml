@@ -36,7 +36,7 @@
     <feature name="Keyboard">
         <param name="android-package" onload="true" value="io.ionic.keyboard.IonicKeyboard" />
     </feature>
-    <name>thirdapp</name>
+    <name>SignSpin</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content original-src="index.html" src="http://192.168.178.113:8100" />
@@ -72,6 +72,8 @@
     <allow-navigation href="http://141.44.219.245:8100" />
     <allow-navigation href="http://141.44.219.119:8100" />
     <allow-navigation href="http://141.44.219.170:8100" />
+    <allow-navigation href="http://141.44.219.93:8100" />
+    <allow-navigation href="http://192.168.100.72:8100" />
     <allow-intent href="market:*" />
     <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
     <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />

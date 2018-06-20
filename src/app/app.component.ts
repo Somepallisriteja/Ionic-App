@@ -10,8 +10,7 @@ import firebase from 'firebase';
 import { TabsPage } from '../pages/tabs/tabs';
 import { AuthService } from '../services/auth';
 //import { Push,  PushOptions } from '@ionic-native/push';
-
-import { ProfilePage } from '../pages/profile/profile';
+//import { ProfilePage } from '../pages/profile/profile';
 //import { AuthProvider } from '@firebase/auth-types';
 //import { AuthProviders } from '../providers/auth/auth';
 //import { ProfilePage } from '../pages/profile/profile';
@@ -45,13 +44,14 @@ export class MyApp {
      private authService: AuthService,
      //private push: Push,
      //auth: AuthProviders
+     
     ) {
 
     
 
       platform.ready().then(() => {
-/* 
-    firebase.initializeApp({
+
+    /*firebase.initializeApp({
     apiKey: "AIzaSyAEITsjmRjiUxpzj25m4rZ8VtT_bXzMapM",
     authDomain: "myproject-2c6c2.firebaseapp.com",
     databaseURL: "https://myproject-2c6c2.firebaseio.com",
@@ -59,10 +59,10 @@ export class MyApp {
     storageBucket: "",
     messagingSenderId: "468750777039"
         
-      }); 
+      }); */
 
-        
-        auth.getPresentUser()
+         
+       /* auth.getPresentUser()
         .then(user => {
           if(user){
             this.rootPage = ProfilePage
@@ -73,9 +73,9 @@ export class MyApp {
           statusBar.styleDefault();
           splashScreen.hide(); 
         })
-        */
+        
 
-        /*  // Get a FCM token
+         // Get a FCM token
         fcm.getToken()
         // Listen to incoming messages
       fcm.listenToNotifications().pipe(

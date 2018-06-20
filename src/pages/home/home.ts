@@ -3,14 +3,14 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 
 
 import 'rxjs/add/operator/map';
-import { NetworkEngineProvider } from '../../providers/network-engine/network-engine';
+
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase} from 'angularfire2/database';
 import { Profile } from '../../models/profile';
 import { TabsPage } from '../tabs/tabs';
 //import { FcmProvider } from '../../providers/fcm/fcm';
-import { tap } from 'rxjs/operators';
+//import { tap } from 'rxjs/operators';
 
 
 
@@ -33,7 +33,7 @@ export class HomePage {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
    //public fcm : FcmProvider,
-    public networkprovider: NetworkEngineProvider,
+ 
     private afAuth: AngularFireAuth,
     private afDatabase: AngularFireDatabase,
     public toastCtrl: ToastController

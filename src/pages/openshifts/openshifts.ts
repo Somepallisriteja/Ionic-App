@@ -75,7 +75,7 @@ export class OpenshiftsPage {
 
     onloadJson(){
       const loading = this.loadingCtrl.create({
-        content: 'Loading open shifts'
+        content: 'Wird geladen'
     
       });
       loading.present();
@@ -101,10 +101,10 @@ export class OpenshiftsPage {
     console.log(user);
     
     const actionSheet = this.actionSheetController.create({ //Boiler Plate Code for Action Sheet Controller; Same template used for VIEW Controller and ALERT Controller
-      title: 'Here are your options..!!',
+      //title: 'Here are your options..!!',
       buttons: [
         {
-          text: 'Interested !!',
+          text: 'für diesen Einsatz bewerben',
           handler: ()=> {
             
             //
@@ -116,14 +116,14 @@ export class OpenshiftsPage {
           }   
         },
         {
-          text:'Not Interested',
+          text:'nicht interessiert',
           role: 'destructive', //Makes the text red and gives a destructive effect
           handler: ()=>{
             
           }
         },
         {
-          text: 'Cancel',
+         text: 'Löschen',
           role: 'cancel'     // Handler runs first when you click a button but here we did not mention any handler. so it gets cancelled automatically
                              
         }
@@ -141,11 +141,11 @@ this.createAlert(user).present();
   private createAlert(user){
     // console.log('alert',user);
     return this.alertCtrl.create({
-     title: 'Add Message',
+     title: 'Nachricht hinzufügen',
      inputs: [
        {
        name: 'name',
-       placeholder: 'Message',
+       placeholder: 'Nachricht',
        type: 'ion-textarea',
        
       
@@ -157,12 +157,15 @@ this.createAlert(user).present();
 
       buttons: [
         {
-          text:'Cancel',
+          text:'Löschen',
           role: 'cancel'
         },
         {
-          text: 'Send Request',
+          text: 'Senden',
           handler: data =>{
+
+            
+           
             
             /*if(data.trim() == '' || data == null){
              const toast = this.toastCtrl.create({
@@ -177,7 +180,7 @@ this.createAlert(user).present();
             }*/
 
             const loading = this.loadingCtrl.create({
-              content: 'Sending your request'
+              content: 'Deine Anfrage wird übermittelt'
             });
             loading.present();
            
@@ -201,8 +204,8 @@ this.createAlert(user).present();
                 console.log(data);
                 loading.dismiss();
                 const alert = this.alertCtrl.create({
-                  title: 'Thank you',
-                  message: 'Request sent successfully !',
+                  title: 'Dankeschön!',
+                  message: 'Deine Anfrage wurde erfolgreich versendet',
                   buttons: ['Ok']
                 });
                 alert.present();

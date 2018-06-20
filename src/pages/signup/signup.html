@@ -2,12 +2,14 @@
 <ion-header>
     
   <ion-navbar>
-      <ion-buttons end>
-          <button ion-button icon-only menuToggle>
-            <ion-icon name="menu"></ion-icon>
-          </button>
-        </ion-buttons>
-    <ion-title>SignUp Page</ion-title>
+ 
+    <ion-title  ><a>Registrierung</a></ion-title>
+    <ion-buttons end>
+        <button ion-button >
+            <img src="http://oi68.tinypic.com/2eupsb5.jpg" height="30px" width="90px" style="display:inline-block">
+
+        </button>
+      </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -15,7 +17,7 @@
 
 <ion-content padding class="background">
 
-  <h3 text-center>SignUp Form</h3>
+  
 <form #f= "ngForm" (ngSubmit)="onSignup(f)">
   <ion-list>
     <ion-card>
@@ -221,6 +223,6 @@
     </ion-item>
   </ion-card>
   </ion-list>
-  <button ion-button block type="submit" [disabled]="!f.valid">SignUp</button>
+  <button ion-button block type="submit" [disabled]="!f.valid">Let it Spin!</button>
 </form>
 </ion-content>

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ProfilePage } from '../profile/profile';
 import { ShiftplanningPage } from '../shiftplanning/shiftplanning';
-import { TimeclockPage } from '../timeclock/timeclock';
 import { MyshiftsPage } from '../myshifts/myshifts';
 
 
@@ -10,10 +9,10 @@ import { MyshiftsPage } from '../myshifts/myshifts';
   selector: 'page-tabs',
   template: `
   <ion-tabs>
-  <ion-tab [root]="profilePage" tabTitle="Profile" tabIcon ="person" ></ion-tab>
-  <ion-tab [root]="shiftPage" tabTitle="ShiftPlanning" tabIcon ="browsers" ></ion-tab>
+  <ion-tab [root]="profilePage" tabTitle="Profil" tabIcon ="person" ></ion-tab>
+  <ion-tab [root]="shiftPage" tabTitle="Einsätze" tabIcon ="browsers" ></ion-tab>
   
-  <ion-tab [root]="myShiftPage" tabTitle="MyShifts" tabIcon ="book" ></ion-tab>
+  <ion-tab [root]="myShiftPage" tabTitle="Meine Einsätze" tabIcon ="book" ></ion-tab>
 
   </ion-tabs>
   `
@@ -21,7 +20,6 @@ import { MyshiftsPage } from '../myshifts/myshifts';
 export class TabsPage {
 profilePage = ProfilePage;
 shiftPage = ShiftplanningPage;
-timePage = TimeclockPage;
 myShiftPage = MyshiftsPage;
 
 

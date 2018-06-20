@@ -13,9 +13,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
   templateUrl: 'closedshifts.html',
 })
 export class ClosedshiftsPage {
-
  
-  userEmail:any;
 
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
@@ -30,21 +28,21 @@ export class ClosedshiftsPage {
     this.onloadJson();
     this.getCurrentUser();
   }
-
+  //function to get the current user email 
+  userEmail:any;
   getCurrentUser() {
     this.afAuth.authState.subscribe(data => {
-      console.log('A informacao de data ' , data);
-      this.userEmail = data.email;
-      console.log(this.userEmail);
+    this.userEmail = data.email;
+      
     });
   }
 
-    /*Loading data from google sheets */
+    //Loading data from google sheets with Sheetsu API with the help of current user email
     users: any;
 
     onloadJson(){
       const loading = this.loadingCtrl.create({
-        content: 'Loading closed shifts'
+        content: 'Wird geladen'
     
       });
       loading.present();
@@ -67,12 +65,12 @@ export class ClosedshiftsPage {
       });
       
     }
-    
+    // function for displaying an alert when there are no shifts
     presentAlert() {
       let alert = this.alertCtrl.create({
-        title: 'Hi',
-        subTitle: 'Currently you have no new shifts scheduled here:)',
-        buttons: ['Dismiss']
+        title: 'Aktuell hast du keine bevorstehenden Einsätze!',
+        subTitle: 'Bewirb dich jetzt auf neue!',
+        buttons: ['Zurück']
       });
       alert.present();
     }
