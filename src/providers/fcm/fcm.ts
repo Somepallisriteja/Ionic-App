@@ -25,7 +25,7 @@ export class FcmProvider {
   
     if (this.platform.is('ios')) {
       token = await this.firebaseNative.getToken();
-      const perm = await this.firebaseNative.grantPermission();
+      //const perm = await this.firebaseNative.grantPermission();
     } 
     //Is not cordova   == web PWA
 

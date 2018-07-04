@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.signspin.android" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>thirdapp</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <name>SignSpin</name>
+    <description>An Awesome SignSpin App.</description>
+    <author email="sriteja.somepalli@signspin.de" href="http://ionicframework.com/">Ionic Framework Team</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -34,6 +34,13 @@
     <allow-navigation href="http://141.44.219.40:8100" />
     <allow-navigation href="http://141.44.219.174:8100" />
     <allow-navigation href="http://141.44.219.245:8100" />
+    <allow-navigation href="http://141.44.219.119:8100" />
+    <allow-navigation href="http://141.44.219.170:8100" />
+    <allow-navigation href="http://141.44.219.93:8100" />
+    <allow-navigation href="http://192.168.100.72:8100" />
+    <allow-navigation href="http://141.44.219.94:8100" />
+    <allow-navigation href="http://141.44.219.225:8100" />
+    <allow-navigation href="http://141.44.219.189:8100" />
     <preference name="ScrollEnabled" value="false" />
     <preference name="android-minSdkVersion" value="16" />
     <preference name="BackupWebStorage" value="none" />

@@ -26,10 +26,12 @@ export class LoginpagePage {
    
 
   }
-
+// function for moving to Registration page
 onclick(){
   this.navCtrl.push(SignupPage)
-}  
+} 
+
+// Registration the form details to firebase and google sheets
 onSignin(form: NgForm){
   const loading= this.loadingCtrl.create({
     content:'Signing you in ...'

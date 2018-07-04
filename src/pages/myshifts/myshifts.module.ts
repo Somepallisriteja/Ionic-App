@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { MyshiftsPage } from './myshifts';
+//import { IonicPageModule } from 'ionic-angular';
+//import { MyshiftsPage } from './myshifts';
 
 @NgModule({
   declarations: [

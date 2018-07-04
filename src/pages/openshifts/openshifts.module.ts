@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { IonicPageModule } from 'ionic-angular';
-import { OpenshiftsPage } from './openshifts';
+//import { IonicPageModule } from 'ionic-angular';
+//import { OpenshiftsPage } from './openshifts';
 
 @NgModule({
   declarations: [

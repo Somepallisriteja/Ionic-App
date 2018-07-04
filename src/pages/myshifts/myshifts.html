@@ -1,46 +1,18 @@
-<!--
-  Generated template for the MyshiftsPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
-   <img src="http://oi68.tinypic.com/2eupsb5.jpg" height="30px" width="90px" style="display:inline-block">
--->
 <ion-header>
-
   <ion-navbar>
-   
-        <img src="http://oi68.tinypic.com/2eupsb5.jpg" height="30px" width="90px" style="display:inline-block">
-
-   
-     
-      <ion-title text-center style="display:inline-block"><a>Meine Einsätze</a></ion-title>
-        <ion-buttons end>
+  <img src="http://oi68.tinypic.com/2eupsb5.jpg" height="30px" width="90px" style="display:inline-block">
+    <ion-title text-center style="display:inline-block"><a>Meine Einsätze</a></ion-title>
+      <ion-buttons end>
         <button ion-button icon-only (click)="onloadJson()">
           <ion-icon name="refresh"></ion-icon>
         </button>
-       
-    </ion-buttons>
-
-
-    
-    
-  </ion-navbar>
-
+      </ion-buttons>
+ </ion-navbar>
 </ion-header> 
 
-
-
-
 <ion-content padding class="background">
-
-
-
-
-
-
-
-
-  <ion-card *ngFor= "let user of users; let i = index" text-wrap>
+<ion-card *ngFor= "let user of users; let i = index" text-wrap>
         <ion-card-title text-center text-wrap>
           <a>{{user.LocationName}}</a>
         </ion-card-title>
@@ -58,9 +30,6 @@
             
            
         </ion-card-header>
-        
-      
-      
-      </ion-card>
+       </ion-card>
 
 </ion-content>

@@ -171,20 +171,24 @@
           <key>NSExceptionAllowsInsecureHTTPLoads</key>
           <true/>
         </dict>
-        <key>m.facebook.com</key>
-        <dict/>
-        <key>graph.facebook.com</key>
-        <dict/>
-        <key>api.facebook.com</key>
-        <dict/>
-        <key>fbcdn.net</key>
+        <key>141.44.219.94</key>
         <dict>
-          <key>NSIncludesSubdomains</key>
+          <key>NSExceptionAllowsInsecureHTTPLoads</key>
           <true/>
         </dict>
-        <key>akamaihd.net</key>
+        <key>141.44.219.225</key>
         <dict>
-          <key>NSIncludesSubdomains</key>
+          <key>NSExceptionAllowsInsecureHTTPLoads</key>
+          <true/>
+        </dict>
+        <key>141.44.219.189</key>
+        <dict>
+          <key>NSExceptionAllowsInsecureHTTPLoads</key>
+          <true/>
+        </dict>
+        <key>141.44.219.137</key>
+        <dict>
+          <key>NSExceptionAllowsInsecureHTTPLoads</key>
           <true/>
         </dict>
       </dict>
@@ -203,25 +207,19 @@
     </array>
     <key>NSCalendarsUsageDescription</key>
     <string/>
-    <key>FacebookAppID</key>
-    <string>2049521611972680</string>
-    <key>FacebookDisplayName</key>
-    <string>IonicApp</string>
-    <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-        <key>CFBundleURLSchemes</key>
-        <array>
-          <string>fb2049521611972680</string>
-        </array>
-      </dict>
-    </array>
     <key>LSApplicationQueriesSchemes</key>
-    <array>
-      <string>fbapi</string>
-      <string>fb-messenger-api</string>
-      <string>fbauth2</string>
-      <string>fbshareextension</string>
-    </array>
+    <array/>
+    <key>IonAppId</key>
+    <string>01fd7ebf</string>
+    <key>IonDebug</key>
+    <string>true</string>
+    <key>IonChannelName</key>
+    <string>Production</string>
+    <key>IonApi</key>
+    <string>https://api.ionicjs.com</string>
+    <key>IonUpdateMethod</key>
+    <string>background</string>
+    <key>IonMaxVersions</key>
+    <string>2</string>
   </dict>
 </plist>

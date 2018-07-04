@@ -24,5 +24,12 @@ page-signup {
     :-ms-input-placeholder{
         color: black !important;
     }
- 
+    ion-card.card {
+        box-shadow: none;
+        border-radius: 5px;
+        background: #004D79;
+    }
+    .card{
+        background-color: #004D79
+    }
 }

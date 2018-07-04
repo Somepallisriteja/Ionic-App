@@ -42,14 +42,25 @@ export class MyApp {
      splashScreen: SplashScreen, 
      private menuCtrl: MenuController,
      private authService: AuthService,
+     
      //private push: Push,
      //auth: AuthProviders
      
     ) {
 
-    
+    firebase.initializeApp({
+      apiKey: "AIzaSyCCkhhDyVrLqndvmn_93nQVUx4RO-atRxg",
+      authDomain: "signspin-7f462.firebaseapp.com",
+     // databaseURL: "https://signspin-7f462.firebaseio.com",
+     // projectId: "signspin-7f462",
+     // storageBucket: "signspin-7f462.appspot.com",
+      messagingSenderId: "585954348031"
+    })
 
       platform.ready().then(() => {
+
+
+
 
     /*firebase.initializeApp({
     apiKey: "AIzaSyAEITsjmRjiUxpzj25m4rZ8VtT_bXzMapM",
@@ -142,11 +153,9 @@ export class MyApp {
    pushObject.on('error').subscribe(error => console.error('Error with Push plugin', error));
   }    */
 
-
-  onLoad(page: any){
-   this.nav.setRoot(page);
-   this.menuCtrl.close();
-  }
+  
+  // Signing out of the application
+ 
   onLogout(){
     
     this.authService.logout();

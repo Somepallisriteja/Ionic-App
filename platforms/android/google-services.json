@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "468750777039",
-    "firebase_url": "https://myproject-2c6c2.firebaseio.com",
-    "project_id": "myproject-2c6c2",
-    "storage_bucket": "myproject-2c6c2.appspot.com"
+    "project_number": "585954348031",
+    "firebase_url": "https://signspin-7f462.firebaseio.com",
+    "project_id": "signspin-7f462",
+    "storage_bucket": "signspin-7f462.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:468750777039:android:5f06214fb5a6ab2d",
+        "mobilesdk_app_id": "1:585954348031:android:5f06214fb5a6ab2d",
         "android_client_info": {
           "package_name": "com.signspin.android"
         }
       },
       "oauth_client": [
         {
-          "client_id": "468750777039-gboh41m2tf3a4omf0g0gl7tmdsuapppu.apps.googleusercontent.com",
+          "client_id": "585954348031-iv6p6s0dd8u5v49gvsctttgrs53jiqpd.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBgnThV3d0bwLJounmQp7a2s0MlmBG_l8s"
+          "current_key": "AIzaSyCzFPbTcK2GlTCo8gqBGtEEJAoG1ldFry0"
         }
       ],
       "services": {

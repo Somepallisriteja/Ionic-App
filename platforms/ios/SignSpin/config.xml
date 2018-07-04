@@ -25,23 +25,40 @@
     <feature name="Device">
         <param name="ios-package" value="CDVDevice" />
     </feature>
-    <feature name="FacebookConnectPlugin">
-        <param name="ios-package" value="FacebookConnectPlugin" />
-        <param name="onload" value="true" />
-    </feature>
-    <plugin name="FacebookConnectPlugin" value="FacebookConnectPlugin" />
-    <access origin="https://m.facebook.com" />
-    <access origin="https://graph.facebook.com" />
-    <access origin="https://api.facebook.com" />
-    <access origin="https://*.fbcdn.net" />
-    <access origin="https://*.akamaihd.net" />
     <feature name="FCMPlugin">
         <param name="ios-package" value="FCMPlugin" />
     </feature>
+    <feature name="Notification">
+        <param name="ios-package" value="CDVNotification" />
+    </feature>
+    <feature name="CodePush">
+        <param name="ios-package" value="CodePush" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="File">
+        <param name="ios-package" value="CDVFile" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="FileTransfer">
+        <param name="ios-package" value="CDVFileTransfer" />
+    </feature>
+    <feature name="SplashScreen">
+        <param name="ios-package" value="CDVSplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="IonicDeploy">
+        <param name="ios-package" onload="true" value="IonicDeploy" />
+    </feature>
+    <feature name="IonicCordovaCommon">
+        <param name="ios-package" onload="true" value="IonicCordovaCommon" />
+    </feature>
+    <feature name="Zip">
+        <param name="ios-package" value="ZipPlugin" />
+    </feature>
     <name>SignSpin</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
-    <content original-src="index.html" src="http://192.168.178.113:8100" />
+    <description>An Awesome SignSpin App.</description>
+    <author email="sriteja.somepalli@signspin.de" href="http://ionicframework.com/">Ionic Framework Team</author>
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -76,6 +93,10 @@
     <allow-navigation href="http://141.44.219.170:8100" />
     <allow-navigation href="http://141.44.219.93:8100" />
     <allow-navigation href="http://192.168.100.72:8100" />
+    <allow-navigation href="http://141.44.219.94:8100" />
+    <allow-navigation href="http://141.44.219.225:8100" />
+    <allow-navigation href="http://141.44.219.189:8100" />
+    <allow-navigation href="http://141.44.219.137:8100" />
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <icon height="57" src="resources/ios/icon/icon.png" width="57" />

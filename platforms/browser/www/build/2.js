@@ -1,11 +1,11 @@
 webpackJsonp([2],{
 
-/***/ 793:
+/***/ 546:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginpagePageModule", function() { return LoginpagePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ClosedshiftsPageModule", function() { return ClosedshiftsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14,19 +14,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
-var LoginpagePageModule = (function () {
-    function LoginpagePageModule() {
+//import { IonicPageModule } from 'ionic-angular';
+//import { ClosedshiftsPage } from './closedshifts';
+var ClosedshiftsPageModule = (function () {
+    function ClosedshiftsPageModule() {
     }
-    LoginpagePageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
-            declarations: [],
-            imports: [],
-        })
-    ], LoginpagePageModule);
-    return LoginpagePageModule;
+    ClosedshiftsPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({})
+    ], ClosedshiftsPageModule);
+    return ClosedshiftsPageModule;
 }());
 
-//# sourceMappingURL=loginpage.module.js.map
+/*declarations: [
+  ClosedshiftsPage
+]
+imports: [
+  IonicPageModule.forChild(ClosedshiftsPage),
+]*/ 
+//# sourceMappingURL=closedshifts.module.js.map
 
 /***/ })
 

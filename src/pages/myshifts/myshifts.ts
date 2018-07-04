@@ -1,16 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, AlertController } from 'ionic-angular';
-import { TabsPage } from '../tabs/tabs';
 import { Http } from '@angular/http';
-
 import { AngularFireAuth } from 'angularfire2/auth';
 
-/**
- * Generated class for the MyshiftsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 @IonicPage()
 @Component({
@@ -28,26 +21,22 @@ export class MyshiftsPage {
     
   }
 
-
+// getting the current user email from the firebase
 
   getCurrentUser() {
     this.afAuth.authState.subscribe(data => {
-      console.log('A informacao de data ' , data);
-      this.userEmail = data.email;
-      console.log(this.userEmail);
+    this.userEmail = data.email;
+      
     });
   }
-
+// loading the content from google sheets
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MyshiftsPage');
     this.getCurrentUser();
     this.onloadJson();
       
   }
-  onload(){
-    this.navCtrl.push(TabsPage)
-  } 
-  
+
+  // getting content from google sheets with the help of user email
 
     onloadJson(){
       const loading = this.loadingCtrl.create({
@@ -56,7 +45,7 @@ export class MyshiftsPage {
       });
       loading.present();
       console.log('in loadjson',this.userEmail);
-      //let email = "sritejamahadevan@gmail.com";
+     
       
        let url = `https://sheetsu.com/apis/v1.0su/0ba4069455bb/sheets/Planed/search?email=${this.userEmail}`
       // search?Kunde=JOKEEvents-Berlin-DS-SS

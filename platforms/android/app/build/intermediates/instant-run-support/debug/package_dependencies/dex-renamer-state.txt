@@ -1,0 +1,4 @@
+#Tue Jul 03 16:35:59 CEST 2018
+base.0=/Users/sritejasomepalli/Ionic-App/platforms/android/app/build/intermediates/transforms/dexMerger/debug/68
+path.0=classes.dex
+renamed.0=classes.dex

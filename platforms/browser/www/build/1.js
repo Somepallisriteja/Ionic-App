@@ -1,11 +1,11 @@
 webpackJsonp([1],{
 
-/***/ 794:
+/***/ 547:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyshiftsPageModule", function() { return MyshiftsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginpagePageModule", function() { return LoginpagePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -14,19 +14,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
-var MyshiftsPageModule = (function () {
-    function MyshiftsPageModule() {
+//import { IonicPageModule } from 'ionic-angular';
+//import { LoginpagePage } from './loginpage';
+var LoginpagePageModule = (function () {
+    function LoginpagePageModule() {
     }
-    MyshiftsPageModule = __decorate([
+    LoginpagePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [],
             imports: [],
         })
-    ], MyshiftsPageModule);
-    return MyshiftsPageModule;
+    ], LoginpagePageModule);
+    return LoginpagePageModule;
 }());
 
-//# sourceMappingURL=myshifts.module.js.map
+//# sourceMappingURL=loginpage.module.js.map
 
 /***/ })
 

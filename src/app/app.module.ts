@@ -13,35 +13,37 @@ import { LoginpagePage } from '../pages/loginpage/loginpage';
 import { ClosedshiftsPage } from '../pages/closedshifts/closedshifts';
 import { MyshiftsPage } from '../pages/myshifts/myshifts';
 import { AuthService } from '../services/auth';
-import { ShiftsService } from '../services/shifts';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
-import { Firebase } from '@ionic-native/firebase';
-//import { Facebook } from '@ionic-native/facebook';
+//import { Firebase } from '@ionic-native/firebase';
 import { Push } from '@ionic-native/push';
 import { AngularFirestoreModule} from 'angularfire2/firestore';
 import { AngularFireModule} from 'angularfire2';
 import { AngularFireAuthModule} from 'angularfire2/auth'; 
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 //import { FcmProvider } from '../providers/fcm/fcm';
-import firebase from 'firebase';
+//import firebase from 'firebase';
 //import {  AuthProviders } from '../providers/auth/auth';
-//import { FacebookLoginComponent } from '../components/facebook-login/facebook-login';
-//import { FacebookLogoutComponent } from '../components/facebook-logout/facebook-logout';
 //import { EditProfilePageModule } from '../pages/edit-profile/edit-profile.module';
 //import { ProfilePageModule } from '../pages/profile/profile.module';
-//import { ComponentsModule } from '../components/components.module';
-
-
 var config = {
+  apiKey: "AIzaSyCCkhhDyVrLqndvmn_93nQVUx4RO-atRxg",
+  authDomain: "signspin-7f462.firebaseapp.com",
+  //databaseURL: "https://signspin-7f462.firebaseio.com",
+  //projectId: "signspin-7f462",
+ // storageBucket: "signspin-7f462.appspot.com",
+  messagingSenderId: "585954348031"
+};
+
+/*var config = {
   apiKey: "AIzaSyAEITsjmRjiUxpzj25m4rZ8VtT_bXzMapM",
   authDomain: "myproject-2c6c2.firebaseapp.com",
   databaseURL: "https://myproject-2c6c2.firebaseio.com",
   projectId: "myproject-2c6c2",
   storageBucket: "myproject-2c6c2.appspot.com",
   messagingSenderId: "468750777039"
-};  
-firebase.initializeApp(config);
+};  */
+//firebase.initializeApp(config); 
 
 
 
@@ -77,7 +79,7 @@ firebase.initializeApp(config);
     AngularFireDatabaseModule
     //EditProfilePageModule,
     //ProfilePageModule,
-    //ComponentsModule
+    
     
    
     
@@ -109,11 +111,7 @@ firebase.initializeApp(config);
     Push,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
-    ShiftsService,
-    Firebase,
-
-   
-    //Facebook,
+    //Firebase
     //AuthProviders
     
     //FcmProvider 

@@ -39,24 +39,15 @@ export class ProfilePage {
 
 
  userEmail: any;
- displayname: any;
- password: any;
  
-
  
 
 
- /*firestore =  firebase.database().ref('/pushtokens');
-  firemsg = firebase.database().ref('/messages');  */
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public http: Http,
-   
     private afAuth: AngularFireAuth,
-
-    private toast: ToastController,
-    //public auth: AuthProviders
-   /* private platform: Platform*/
+    private toast: ToastController
   ) {
    
    
@@ -79,7 +70,7 @@ ionViewWillLoad(){
  
   this.afAuth.authState.take(1).subscribe(data=> {
 
-    console.log('A informatica', data );
+    
     if(data && data.email && data.uid){
       this.toast.create({
         message: ` Willkommen in der SignSpin App!, ${data.email}`,
@@ -92,12 +83,9 @@ ionViewWillLoad(){
   })
 }
 getCurrentUser() {
-  this.afAuth.authState.subscribe(data => {
-    console.log('A informacao de data ' , data);
+  this.afAuth.authState.subscribe(data => { 
+
     this.userEmail = data.email;
-    
-   
-   
   });
 }  
 
